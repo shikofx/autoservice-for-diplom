@@ -1,18 +1,1 @@
-# Log file
-*.log
-
-# Package Files #
-*.jar
-*.war
-
-# User-specific stuff
-out/
-build/
-/autoservice-app-console/test_base/
-/.idea/
-/.gradle/
-!/build.gradle
-!/settings.gradle
-!gradle-wrapper.jar
-
-#/gradle/
+# Created by .ignore support plugin (hsz.mobi)

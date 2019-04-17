@@ -1,88 +1,16 @@
-buildscript {
-    repositories {
-        maven {
-            url "https://plugins.gradle.org/m2/"
-        }
-    }
-    dependencies {
-        classpath "io.qameta.allure:allure-gradle:2.7.0"
-    }
+plugins {
+    id 'java'
 }
-
-apply plugin: 'java'
-apply plugin: 'idea'
-apply plugin: 'io.qameta.allure'
-apply plugin: 'jacoco'
 
 group 'com.epam'
 version '1.0-SNAPSHOT'
 
-compileTestJava {
-    sourceCompatibility = 1.8
-    targetCompatibility = 1.8
-    options.encoding = 'UTF-8'
-}
-
-defaultTasks 'clean', 'build'
-
-configurations {
-    agent
-}
-
-dependencies {
-    agent "org.aspectj:aspectjweaver:1.9.2"
-}
+sourceCompatibility = 1.12
 
 repositories {
     mavenCentral()
-    jcenter()
 }
 
 dependencies {
-    testCompile group: 'junit',
-                name: 'junit',
-                version: '4.12'
-
-    testCompile group: 'org.mockito',
-                name: 'mockito-all',
-                version: '1.10.19'
-
-    testCompile group: 'ru.yandex.qatools.allure',
-                name: 'allure-junit-adaptor',
-                version: '1.5.4'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
 }
-
-allure {
-    autoconfigure = true
-    aspectjweaver = true
-    version = '2.10.0'
-}
-
-jacoco {
-    version = '0.8.3'
-}
-
-test.doFirst {
-    jvmArgs "-javaagent:${configurations.agent.singleFile}"
-}
-
-test {
-    useJUnit()
-}
-
-task generateAllureReport(type: Exec) {
-    commandLine 'cmd', '/c', 'allure.bat', 'generate', '-c', "$projectDir/build/allure-results",
-                '-o', "$projectDir/build/reports/allure"
-}
-
-test.finalizedBy(generateAllureReport)
-
-jacocoTestReport {
-    reports {
-        html.enabled = true
-        xml.enabled = true
-        csv.enabled = true
-    }
-}
-
-test.finalizedBy(jacocoTestReport)

@@ -6,8 +6,8 @@ import java.util.Date;
 
 public class DataFilter {
 
-    private Date startDate;
-    private Date endDate;
+    private Date startDate = new Date((new Date()).getTime() - 5000);
+    private Date endDate = new Date();
     private IFilterController userInterface;
 
 
@@ -15,7 +15,7 @@ public class DataFilter {
         this.userInterface = userInterface;
     }
 
-    private Date currentDate() {
+    public Date currentDate() {
         return new Date();
     }
 
@@ -35,17 +35,23 @@ public class DataFilter {
         this.startDate = startDate;
     }
 
-    public boolean readAndVerifyStartDate() {
+    public boolean readStartDate() {
         startDate = userInterface.readStartDate();
-        if (startDate.getTime() < currentDate().getTime())
-            return true;
-        return false;
+        return verifyDates();
     }
 
-    public boolean readAndVerifyEndDate() {
+    public boolean readEndDate() {
         endDate = userInterface.readEndDate();
-        if (endDate.getTime() < currentDate().getTime())
-            return true;
-        return false;
+        return verifyDates();
+    }
+
+    private boolean verifyDates() {
+        if (startDate.getTime() > currentDate().getTime())
+            return false;
+        if (endDate.getTime() > currentDate().getTime())
+            return false;
+        if (startDate.getTime() > endDate.getTime())
+            return false;
+        return true;
     }
 }

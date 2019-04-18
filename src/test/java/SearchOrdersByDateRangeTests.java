@@ -1,3 +1,4 @@
+import com.epam.Controller.ConsoleController;
 import com.epam.Controller.IFilterController;
 import com.epam.menu.DataFilter;
 import org.junit.After;
@@ -15,6 +16,7 @@ import static org.mockito.Mockito.when;
 @RunWith(MockitoJUnitRunner.class)
 public class SearchOrdersByDateRangeTests {
     IFilterController userInterface;
+    ConsoleController consoleController = new ConsoleController();
     DataFilter dataFilter;
 
     @Before
@@ -30,19 +32,45 @@ public class SearchOrdersByDateRangeTests {
 
     @Test
     public void startDateLessOrEqualsThanCurrentDate() {
-        Date currentDate = new Date();
-        Date lessThenCurrentDate = new Date(currentDate.getTime() - 1000);
-        when(userInterface.readStartDate()).thenReturn(currentDate).thenReturn(lessThenCurrentDate);
-        Assert.assertTrue(dataFilter.readAndVerifyStartDate());
-        Assert.assertTrue(dataFilter.readAndVerifyStartDate());
+        Date currentDate = dataFilter.currentDate();
+        Date dateLessThanCurrent = getDateLessThan(currentDate);
+        when(userInterface.readStartDate()).thenReturn(currentDate).thenReturn(dateLessThanCurrent);
+        Assert.assertTrue(dataFilter.readStartDate());
+        Assert.assertTrue(dataFilter.readStartDate());
     }
 
     @Test
     public void endDateLessOrEqualsThanCurrentDate() {
-        Date currentDate = new Date();
-        Date lessThanCurrentDate = new Date(currentDate.getTime() - 1000);
-        when(userInterface.readEndDate()).thenReturn(currentDate).thenReturn(lessThanCurrentDate);
-        Assert.assertTrue(dataFilter.readAndVerifyEndDate());
-        Assert.assertTrue(dataFilter.readAndVerifyEndDate());
+        Date currentDate = dataFilter.currentDate();
+        Date dateLessThanCurrent = getDateLessThan(currentDate);
+        when(userInterface.readEndDate()).thenReturn(currentDate).thenReturn(dateLessThanCurrent);
+        Assert.assertTrue(dataFilter.readEndDate());
+        Assert.assertTrue(dataFilter.readEndDate());
     }
+
+    @Test
+    public void startDateLessThanEndDate() {
+        when(userInterface.readStartDate()).thenReturn(consoleController.toDate("22-02-2019"));
+        when(userInterface.readEndDate()).thenReturn(consoleController.toDate("22-03-2019"));
+        Assert.assertTrue(dataFilter.readStartDate() && dataFilter.readEndDate());
+    }
+
+    @Test
+    public void startDateEqualToEndDate() {
+        when(userInterface.readStartDate()).thenReturn(consoleController.toDate("22-03-2019"));
+        when(userInterface.readEndDate()).thenReturn(consoleController.toDate("22-03-2019"));
+        Assert.assertTrue(dataFilter.readStartDate() && dataFilter.readEndDate());
+    }
+
+
+    private Date getDateLessThan(Date currentDate) {
+        return getDateLessThan(currentDate, 1000);
+    }
+
+    private Date getDateLessThan(Date currentDate, int deviation) {
+        return new Date(currentDate.getTime() - deviation);
+    }
+
+    //Fail тесты на дату
+
 }

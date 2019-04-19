@@ -4,6 +4,5 @@ import java.util.Date;
 
 public interface IDataProvider {
     Date getStartDate();
-
     Date getEndDate();
 }

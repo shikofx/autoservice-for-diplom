@@ -1,8 +1,8 @@
 package com.epam.console;
 
-import static org.junit.Assert.assertNotNull;
-
 import org.junit.Test;
+
+import static org.junit.Assert.assertNotNull;
 
 public class ConsoleDateFormatTests {
     ConsoleDateFormat consoleDateFormat = new ConsoleDateFormat();

@@ -1,17 +1,17 @@
-package com.epam.menu;
+package com.epam.service;
 
-import com.epam.Controller.IFilterController;
+import com.epam.Controller.IFilterProvider;
 
 import java.util.Date;
 
-public class DataFilter {
+public class DataFilterService {
 
     private Date startDate = new Date((new Date()).getTime() - 5000);
     private Date endDate = new Date();
-    private IFilterController userInterface;
+    private IFilterProvider userInterface;
 
 
-    public DataFilter(IFilterController userInterface) {
+    public DataFilterService(IFilterProvider userInterface) {
         this.userInterface = userInterface;
     }
 
@@ -47,11 +47,12 @@ public class DataFilter {
 
     private boolean verifyDates() {
         if (startDate.getTime() > currentDate().getTime())
-            return false;
+            throw new IllegalArgumentException("Start filter date must be less or equal than current date");
         if (endDate.getTime() > currentDate().getTime())
-            return false;
-        if (startDate.getTime() > endDate.getTime())
-            return false;
+            throw new IllegalArgumentException("End filter date must be less or equal than current date");
+        if (startDate.getTime() > endDate.getTime()) {
+            throw new IllegalArgumentException("Start filter date must be less or equal than end filter date");
+        }
         return true;
     }
 }

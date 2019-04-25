@@ -67,7 +67,7 @@ public class FilterControllerTest {
     @Test(expected = IllegalArgumentException.class)
     public void failWhenStartDateGraterThanEndDate() {
         Date startDate = filterController.currentDate();
-        Date endDate = getDateLessThan(filterController.currentDate(), 1000);
+        Date endDate = getDateLessThan(startDate, 1000);
         when(dataProvider.getStartDate()).thenReturn(startDate);
         when(dataProvider.getEndDate()).thenReturn(endDate);
         filterController.readAndVerifyStartDate();

@@ -6,7 +6,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class ConsoleDateFormat implements IDateFormat<String> {
+public class ConsoleDataFormat implements IDateFormat<String> {
     public static final String LEGAL_DEVIDERS = "[\\.\\/]";
     public static final String COMMON_DEVIDER = "-";
     public static final String DATE_FORMAT = "dd-MM-yyyy";

@@ -8,20 +8,21 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import static com.epam.console.ConsoleDateFormat.DATE_FORMAT;
+import static com.epam.console.ConsoleDataFormat.DATE_FORMAT;
+import static org.hamcrest.CoreMatchers.is;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-public class ConsoleProviderTests {
+public class ConsoleDataProviderTests {
     SimpleDateFormat simpleDateFormat;
     IConsoleManager consoleManager;
-    ConsoleProvider consoleProvider;
+    ConsoleDataProvider consoleDataProvider;
 
     @Before
     public void setUp() {
         simpleDateFormat = new SimpleDateFormat(DATE_FORMAT);
         consoleManager = mock(IConsoleManager.class);
-        consoleProvider = new ConsoleProvider(consoleManager);
+        consoleDataProvider = new ConsoleDataProvider(consoleManager);
     }
 
     @Test
@@ -29,7 +30,7 @@ public class ConsoleProviderTests {
         String dateString = "20-12-2019";
         Date date = simpleDateFormat.parse(dateString);
         when(consoleManager.readNextLine()).thenReturn(dateString);
-        Assert.assertEquals(date, consoleProvider.getStartDate());
+        Assert.assertThat(date, is(consoleDataProvider.getStartDate()));
     }
 
     @Test
@@ -37,6 +38,6 @@ public class ConsoleProviderTests {
         String dateString = "20-12-2019";
         Date date = simpleDateFormat.parse(dateString);
         when(consoleManager.readNextLine()).thenReturn(dateString);
-        Assert.assertEquals(date, consoleProvider.getEndDate());
+        Assert.assertThat(date, is(consoleDataProvider.getEndDate()));
     }
 }

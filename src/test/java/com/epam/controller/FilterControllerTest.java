@@ -1,6 +1,6 @@
 package com.epam.controller;
 
-import com.epam.service.IDataProvider;
+import com.epam.service.DataProvider;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -15,12 +15,12 @@ import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class FilterControllerTest {
-    IDataProvider dataProvider;
+    DataProvider dataProvider;
     FilterController filterController;
 
     @Before
     public void setUp() {
-        dataProvider = mock(IDataProvider.class);
+        dataProvider = mock(DataProvider.class);
         filterController = new FilterController(dataProvider);
     }
 

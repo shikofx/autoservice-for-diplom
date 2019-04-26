@@ -1,5 +1,7 @@
 package com.epam.controller;
 
+import com.epam.data.repo.AutoOrderRepository;
+import com.epam.domain.AutoOrder;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -12,16 +14,16 @@ public class DerbyDataBaseControllerTest {
 
     String dbName;
     DerbyDataBaseController databaseController;
-    String tableName;
-    String parameters;
+    AutoOrderRepository orderRepository;
+    AutoOrder testOrder;
 
     @Before
     public void setUp() throws Exception {
         dbName = "test_base";
-        tableName = "test_table";
-        parameters = "ID INT";
-
+        testOrder = new AutoOrder();
         databaseController = new DerbyDataBaseController(dbName);
+        orderRepository = new AutoOrderRepository(databaseController);
+
     }
 
     @After
@@ -33,20 +35,6 @@ public class DerbyDataBaseControllerTest {
     public void databaseCanBeCreated() {
         File databaseFolder = new File(dbName);
         Assert.assertTrue(databaseFolder.exists());
-    }
-
-    @Test
-    public void tableCanBeCreated() throws SQLException {
-        databaseController.createTable(tableName, parameters);
-        Assert.assertTrue(databaseController.isTableExists(tableName));
-        databaseController.deleteTable(tableName);
-    }
-
-    @Test
-    public void tableCanBeDeleted() throws SQLException {
-        databaseController.createTable(tableName, parameters);
-        databaseController.deleteTable(tableName);
-        Assert.assertFalse(databaseController.isTableExists(tableName));
     }
 
     @Test

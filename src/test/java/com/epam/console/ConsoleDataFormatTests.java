@@ -24,7 +24,7 @@ public class ConsoleDataFormatTests {
         String dateString = "22.05.2019";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DATE_FORMAT);
         Date date = simpleDateFormat.parse(dateString.replaceAll("\\.", "-"));
-        assertThat(date, Is.is(consoleDataFormat.toDate(dateString)));
+        assertThat(date, Is.is(consoleDataFormat.dateStringToDate(dateString)));
     }
 
     @Test
@@ -32,7 +32,7 @@ public class ConsoleDataFormatTests {
         String dateString = "22/05/2019";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DATE_FORMAT);
         Date date = simpleDateFormat.parse(dateString.replaceAll("\\/", "-"));
-        assertThat(date, Is.is(consoleDataFormat.toDate(dateString)));
+        assertThat(date, Is.is(consoleDataFormat.dateStringToDate(dateString)));
     }
 
     @Test
@@ -40,7 +40,7 @@ public class ConsoleDataFormatTests {
         String dateString = "22-05-2019";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DATE_FORMAT);
         Date date = simpleDateFormat.parse(dateString);
-        assertThat(date, Is.is(consoleDataFormat.toDate(dateString)));
+        assertThat(date, Is.is(consoleDataFormat.dateStringToDate(dateString)));
     }
 
 }

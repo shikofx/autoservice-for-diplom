@@ -1,10 +1,10 @@
 package com.epam.console;
 
-import com.epam.service.IDataProvider;
+import com.epam.service.DataProvider;
 
 import java.util.Date;
 
-public class ConsoleDataProvider implements IDataProvider {
+public class ConsoleDataProvider implements DataProvider {
     private ConsoleDataFormat consoleDataFormat = new ConsoleDataFormat();
     private IConsoleManager consoleManager;
 
@@ -15,12 +15,12 @@ public class ConsoleDataProvider implements IDataProvider {
     @Override
     public Date getStartDate() {
         System.out.println("Input start date: ");
-        return consoleDataFormat.toDate(consoleManager.readNextLine());
+        return consoleDataFormat.dateStringToDate(consoleManager.readNextLine());
     }
 
     @Override
     public Date getEndDate() {
         System.out.println("Input end date: ");
-        return consoleDataFormat.toDate(consoleManager.readNextLine());
+        return consoleDataFormat.dateStringToDate(consoleManager.readNextLine());
     }
 }

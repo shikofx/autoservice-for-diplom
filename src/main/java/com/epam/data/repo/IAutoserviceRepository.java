@@ -1,13 +1,22 @@
 package com.epam.data.repo;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
-public interface IAutoserviceRepository<T extends Object> {
-    void add(T object);
+public interface IAutoserviceRepository<T> {
+    void createTable(T o) throws SQLException;
 
-    T find(T object);
 
-    void delete(T object);
+    void deleteTable(T o) throws SQLException;
 
-    List<T> findAll();
+    boolean isTableExists(T o) throws SQLException;
+
+    void add(T object) throws SQLException, IllegalAccessException;
+
+    List<T> findAll() throws SQLException;
+
+    void executeUpdate(String query) throws SQLException;
+
+    T fromSqlResult(ResultSet res) throws SQLException;
 }

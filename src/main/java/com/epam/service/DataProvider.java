@@ -2,7 +2,7 @@ package com.epam.service;
 
 import java.util.Date;
 
-public interface IDataProvider {
+public interface DataProvider {
     Date getStartDate();
     Date getEndDate();
 }

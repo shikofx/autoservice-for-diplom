@@ -19,7 +19,7 @@ public class ReuestToDatabaseTest {
 
     @Test
     public void requestHaveStartDate() {
-        Date startDate = consoleDataFormat.toDate("22/03/2019");
+        Date startDate = consoleDataFormat.dateStringToDate("22/03/2019");
         RequestToFindOrders request = new RequestToFindOrders().
                 withStartDate(startDate);
         assertThat(startDate, is(request.getStartDate()));
@@ -27,7 +27,7 @@ public class ReuestToDatabaseTest {
 
     @Test
     public void requestHaveEndDate() {
-        Date endDate = consoleDataFormat.toDate("22/03/2019");
+        Date endDate = consoleDataFormat.dateStringToDate("22/03/2019");
         RequestToFindOrders request = new RequestToFindOrders().
                 withEndDate(endDate);
         assertThat(endDate, is(request.getEndDate()));

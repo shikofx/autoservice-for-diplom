@@ -1,5 +1,9 @@
 package com.epam.controller;
 
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
+
 import com.epam.service.DataProvider;
 import org.junit.After;
 import org.junit.Assert;
@@ -9,9 +13,6 @@ import org.junit.runner.RunWith;
 import org.mockito.runners.MockitoJUnitRunner;
 
 import java.util.Date;
-
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class FilterControllerTest {

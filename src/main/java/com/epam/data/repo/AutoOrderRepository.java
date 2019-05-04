@@ -89,6 +89,7 @@ public class AutoOrderRepository implements IAutoserviceRepository<AutoOrder> {
         AutoOrder order = new AutoOrder();
         order.setId(res.getInt("ID"));
         order.setDate(new ConsoleDataFormat().fullDateStringToDate(res.getString("DATE")));
+        String s = res.getString("OWNERNAME");
         order.setOwnerName(res.getString("ownerName"));
         return order;
     }

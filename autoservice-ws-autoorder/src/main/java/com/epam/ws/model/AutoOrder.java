@@ -69,7 +69,7 @@ public class AutoOrder {
             return false;
         }
         AutoOrder autoOrder = (AutoOrder) o;
-        return orderId.equals(autoOrder.orderId) &&
+        return orderId == autoOrder.orderId &&
                orderDate.equals(autoOrder.orderDate) &&
                ownerName.equals(autoOrder.ownerName);
     }

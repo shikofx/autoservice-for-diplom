@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AutoOrder.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">autoservice-ws-autoorder</a> &gt; <a href="index.source.html" class="el_package">com.epam.ws.model</a> &gt; <span class="el_source">AutoOrder.java</span></div><h1>AutoOrder.java</h1><pre class="source lang-java linenums">package com.epam.ws.model;
+
+import java.util.Objects;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class AutoOrder {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = &quot;order_id&quot;)
+    private Long orderId;
+    @Column(name = &quot;order_date&quot;)
+    private String orderDate;
+    @Column(name = &quot;owner_name&quot;)
+    private String ownerName;
+
+<span class="fc" id="L22">    public AutoOrder() {</span>
+<span class="fc" id="L23">    }</span>
+
+<span class="nc" id="L25">    public AutoOrder(String orderDate, String ownerName) {</span>
+<span class="nc" id="L26">        this.orderDate = orderDate;</span>
+<span class="nc" id="L27">        this.ownerName = ownerName;</span>
+<span class="nc" id="L28">    }</span>
+
+    public Long getOrderId() {
+<span class="fc" id="L31">        return orderId;</span>
+    }
+
+    public void setOrderId(Long orderId) {
+<span class="fc" id="L35">        this.orderId = orderId;</span>
+<span class="fc" id="L36">    }</span>
+
+    public String getOrderDate() {
+<span class="fc" id="L39">        return orderDate;</span>
+    }
+
+    public void setOrderDate(String orderDate) {
+<span class="fc" id="L43">        this.orderDate = orderDate;</span>
+<span class="fc" id="L44">    }</span>
+
+    public String getOwnerName() {
+<span class="fc" id="L47">        return ownerName;</span>
+    }
+
+    public void setOwnerName(String ownerName) {
+<span class="fc" id="L51">        this.ownerName = ownerName;</span>
+<span class="fc" id="L52">    }</span>
+
+    @Override
+    public String toString() {
+<span class="nc" id="L56">        return &quot;AutoOrder{&quot; +</span>
+               &quot;orderId=&quot; + orderId +
+               &quot;, orderDate=&quot; + orderDate +
+               &quot;, ownerName='&quot; + ownerName + '\'' +
+               '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+<span class="nc bnc" id="L65" title="All 2 branches missed.">        if (this == o) {</span>
+<span class="nc" id="L66">            return true;</span>
+        }
+<span class="nc bnc" id="L68" title="All 4 branches missed.">        if (o == null || getClass() != o.getClass()) {</span>
+<span class="nc" id="L69">            return false;</span>
+        }
+<span class="nc" id="L71">        AutoOrder autoOrder = (AutoOrder) o;</span>
+<span class="nc bnc" id="L72" title="All 2 branches missed.">        return orderId == autoOrder.orderId &amp;&amp;</span>
+<span class="nc bnc" id="L73" title="All 2 branches missed.">               orderDate.equals(autoOrder.orderDate) &amp;&amp;</span>
+<span class="nc bnc" id="L74" title="All 2 branches missed.">               ownerName.equals(autoOrder.ownerName);</span>
+    }
+
+    @Override
+    public int hashCode() {
+<span class="nc" id="L79">        return Objects.hash(orderId, orderDate, ownerName);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

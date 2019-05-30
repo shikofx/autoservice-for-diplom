@@ -19,17 +19,21 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 
+import java.awt.*;
+import java.io.IOException;
+
 public class FindByIdTests extends TestBase {
 
-    private final Logger log = LogManager.getLogger(FindByIdTests.class);
+    private Logger log = LogManager.getLogger(FindByIdTests.class);
+    private AutoOrder orderToServer;
     private AutoOrder addedOrder;
 
     @Before
-    public void setUp() {
+    public void setUp() throws IOException, AWTException {
         log.info("-->> setUp for " + FindByIdTests.class.getSimpleName());
-        AutoOrder orderToServer = new AutoOrder()
+        orderToServer = new AutoOrder()
             .withOrderDate("22.12.2018")
-            .withOwnerName(TestBase.TEST_OWNER_STRING);
+            .withOwnerName("Test Owner");
         log.info("-->> add data to server: " + orderToServer.asString());
         Response addResponse = AUTO_ORDER_CONTROLLER.add(orderToServer);
         addedOrder = addResponse.as(AutoOrder.class);
@@ -37,12 +41,12 @@ public class FindByIdTests extends TestBase {
 
     @After
     public void tearDown() {
-        log.info("<<-- tearDown for " + FindByIdTests.class.getSimpleName());
+//        log.info("<<-- tearDown for " + FindByIdTests.class.getSimpleName());
     }
 
     @Test
     @Category(PositiveTests.class)
-    public void findByIdSucceed() {
+    public void findByIdSucceed() throws IOException, AWTException {
         log.info(">>> @Test findByIdSucceed of " + addedOrder.asString());
         log.info(">>> >> find by id = " + addedOrder.getOrderId());
         Response findByIdResponse = AUTO_ORDER_CONTROLLER.findById(addedOrder.getOrderId());
@@ -60,7 +64,7 @@ public class FindByIdTests extends TestBase {
 
     @Test
     @Category(NegativeTests.class)
-    public void findByIdWithZeroIdFailed() {
+    public void findByIdWithZeroIdFailed() throws IOException, AWTException {
         addedOrder.withId(0);
         log.info(">>> @Test findByIdWithZeroIdFailed of " + addedOrder.asString());
         log.info(">>> >> find by id = " + addedOrder.getOrderId());

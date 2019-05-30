@@ -15,9 +15,9 @@ import java.util.Date;
 
 public class ConsoleDataProviderTests {
 
-    private SimpleDateFormat simpleDateFormat;
-    private IConsoleManager consoleManager;
-    private ConsoleDataProvider consoleDataProvider;
+    SimpleDateFormat simpleDateFormat;
+    IConsoleManager consoleManager;
+    ConsoleDataProvider consoleDataProvider;
 
     @Before
     public void setUp() {

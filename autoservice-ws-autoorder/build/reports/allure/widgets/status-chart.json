@@ -1,0 +1,171 @@
+[ {
+  "uid" : "e1d47ac472de8b0a",
+  "name" : "testDeleteAutoOrder",
+  "time" : {
+    "start" : 1559118637363,
+    "stop" : 1559118637389,
+    "duration" : 26
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "296c24db9fa307ba",
+  "name" : "testFindOne",
+  "time" : {
+    "start" : 1559118635148,
+    "stop" : 1559118635157,
+    "duration" : 9
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "cbcee81a38f4cd24",
+  "name" : "testGetAutoOrders",
+  "time" : {
+    "start" : 1559118637464,
+    "stop" : 1559118637478,
+    "duration" : 14
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "14f1a4313f6f827b",
+  "name" : "testUpdate",
+  "time" : {
+    "start" : 1559118635313,
+    "stop" : 1559118635324,
+    "duration" : 11
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "a2cafe6f4e421ab5",
+  "name" : "testUpdateAutoOrder",
+  "time" : {
+    "start" : 1559118637094,
+    "stop" : 1559118637220,
+    "duration" : 126
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "eed0c16603af6b08",
+  "name" : "testCreate",
+  "time" : {
+    "start" : 1559118635161,
+    "stop" : 1559118635285,
+    "duration" : 124
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "77398f1dc32653b2",
+  "name" : "testUpdateAutoOrder",
+  "time" : {
+    "start" : 1559118637409,
+    "stop" : 1559118637423,
+    "duration" : 14
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "d6da1439d32b6f40",
+  "name" : "testGetAutoOrders",
+  "time" : {
+    "start" : 1559118637282,
+    "stop" : 1559118637306,
+    "duration" : 24
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "6b7475afb0b192b7",
+  "name" : "testCreateAutoOrder",
+  "time" : {
+    "start" : 1559118637426,
+    "stop" : 1559118637443,
+    "duration" : 17
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "a0d83d50aacaeec8",
+  "name" : "testFindAll",
+  "time" : {
+    "start" : 1559118634753,
+    "stop" : 1559118635143,
+    "duration" : 390
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "9080c95a5721926b",
+  "name" : "testFindOneNotFound",
+  "time" : {
+    "start" : 1559118634485,
+    "stop" : 1559118634639,
+    "duration" : 154
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "60bf06a042f9a134",
+  "name" : "testCreateAutoOrder",
+  "time" : {
+    "start" : 1559118637224,
+    "stop" : 1559118637252,
+    "duration" : 28
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "3df2b269fab4bf1f",
+  "name" : "testGetAutoOrder",
+  "time" : {
+    "start" : 1559118636847,
+    "stop" : 1559118637089,
+    "duration" : 242
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "82b1726efc6c22fa",
+  "name" : "testDelete",
+  "time" : {
+    "start" : 1559118635289,
+    "stop" : 1559118635310,
+    "duration" : 21
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "5ee52a8344c06e47",
+  "name" : "testGetAutoOrderNotFound",
+  "time" : {
+    "start" : 1559118637256,
+    "stop" : 1559118637279,
+    "duration" : 23
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "a849dd29f4add96c",
+  "name" : "testGetAutoOrderNotFound",
+  "time" : {
+    "start" : 1559118637449,
+    "stop" : 1559118637460,
+    "duration" : 11
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "4e7b53f9a7f85ce4",
+  "name" : "testGetAutoOrder",
+  "time" : {
+    "start" : 1559118637393,
+    "stop" : 1559118637405,
+    "duration" : 12
+  },
+  "status" : "passed",
+  "severity" : "normal"
+} ]

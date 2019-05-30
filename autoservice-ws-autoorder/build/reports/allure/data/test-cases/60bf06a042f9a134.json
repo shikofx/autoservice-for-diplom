@@ -1,0 +1,50 @@
+{
+  "uid" : "60bf06a042f9a134",
+  "name" : "testCreateAutoOrder",
+  "fullName" : "com.epam.ws.web.api.AutoOrderControllerMocksTest.testCreateAutoOrder",
+  "historyId" : "2fb4785dad50c797d7ad05bd928623ec",
+  "time" : {
+    "start" : 1559118637224,
+    "stop" : 1559118637252,
+    "duration" : 28
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "com.epam.ws.web.api"
+  }, {
+    "name" : "testClass",
+    "value" : "com.epam.ws.web.api.AutoOrderControllerMocksTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "testCreateAutoOrder"
+  }, {
+    "name" : "suite",
+    "value" : "com.epam.ws.web.api.AutoOrderControllerMocksTest"
+  }, {
+    "name" : "host",
+    "value" : "EPBYMINW6849"
+  }, {
+    "name" : "thread",
+    "value" : "7152@EPBYMINW6849.Test worker(13)"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "60bf06a042f9a134.json",
+  "parameterValues" : [ ]
+}

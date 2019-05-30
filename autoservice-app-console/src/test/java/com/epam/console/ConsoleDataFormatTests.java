@@ -13,7 +13,7 @@ import java.util.Date;
 
 public class ConsoleDataFormatTests {
 
-    private ConsoleDataFormat consoleDataFormat;
+    ConsoleDataFormat consoleDataFormat;
 
     @Before
     public void setUp() {
@@ -32,7 +32,7 @@ public class ConsoleDataFormatTests {
     public void dateCanContainSlashInFormat() throws ParseException {
         String dateString = "22/05/2019";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DATE_FORMAT);
-        Date date = simpleDateFormat.parse(dateString.replaceAll("/", "-"));
+        Date date = simpleDateFormat.parse(dateString.replaceAll("\\/", "-"));
         assertThat(date, Is.is(consoleDataFormat.dateStringToDate(dateString)));
     }
 

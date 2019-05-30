@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AutoOrderController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">autoservice-ws-autoorder</a> &gt; <a href="index.source.html" class="el_package">com.epam.ws.web.api</a> &gt; <span class="el_source">AutoOrderController.java</span></div><h1>AutoOrderController.java</h1><pre class="source lang-java linenums">package com.epam.ws.web.api;
+
+import com.epam.ws.model.AutoOrder;
+import com.epam.ws.service.AutoOrderService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Collection;
+
+@RestController
+<span class="fc" id="L18">public class AutoOrderController extends BaseController {</span>
+
+    @Autowired
+    private AutoOrderService autoOrderService;
+
+    @RequestMapping(value = &quot;api/autoOrders&quot;,
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity&lt;Collection&lt;AutoOrder&gt;&gt; getAutoOrders() {
+
+<span class="fc" id="L28">        Collection&lt;AutoOrder&gt; autoOrders = autoOrderService.findAll();</span>
+<span class="fc" id="L29">        return new ResponseEntity&lt;Collection&lt;AutoOrder&gt;&gt;(autoOrders, HttpStatus.OK);</span>
+    }
+
+    @RequestMapping(value = &quot;api/autoOrders/{order_id}&quot;,
+        method = RequestMethod.GET,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity&lt;AutoOrder&gt; getAutoOrder(
+        @PathVariable(&quot;order_id&quot;)
+            Long orderId) {
+
+<span class="fc" id="L39">        AutoOrder autoOrder = autoOrderService.findOne(orderId);</span>
+<span class="fc bfc" id="L40" title="All 2 branches covered.">        if (autoOrder == null) {</span>
+<span class="fc" id="L41">            return new ResponseEntity&lt;AutoOrder&gt;(HttpStatus.NOT_FOUND);</span>
+        }
+<span class="fc" id="L43">        return new ResponseEntity&lt;AutoOrder&gt;(autoOrder, HttpStatus.OK);</span>
+    }
+
+    @RequestMapping(value = &quot;api/autoOrders&quot;,
+        method = RequestMethod.POST,
+        consumes = MediaType.APPLICATION_JSON_VALUE,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity&lt;AutoOrder&gt; createAutoOrder(
+        @RequestBody
+            AutoOrder autoOrder) {
+
+<span class="fc" id="L54">        AutoOrder saveAutoOrder = autoOrderService.create(autoOrder);</span>
+<span class="fc" id="L55">        return new ResponseEntity&lt;AutoOrder&gt;(autoOrder, HttpStatus.CREATED);</span>
+    }
+
+    @RequestMapping(value = &quot;/api/autoOrders/{order_id}&quot;,
+        method = RequestMethod.PUT,
+        consumes = MediaType.APPLICATION_JSON_VALUE,
+        produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity&lt;AutoOrder&gt; updateAutoOrder(
+        @RequestBody
+            AutoOrder autoOrder) {
+
+<span class="fc" id="L66">        AutoOrder updatedAutoOrder = autoOrderService.update(autoOrder);</span>
+<span class="pc bpc" id="L67" title="1 of 2 branches missed.">        if (updatedAutoOrder == null) {</span>
+<span class="nc" id="L68">            return new ResponseEntity&lt;AutoOrder&gt;(HttpStatus.INTERNAL_SERVER_ERROR);</span>
+        }
+<span class="fc" id="L70">        return new ResponseEntity&lt;AutoOrder&gt;(updatedAutoOrder, HttpStatus.OK);</span>
+    }
+
+    @RequestMapping(value = &quot;/api/autoOrders/{order_id}&quot;,
+        method = RequestMethod.DELETE,
+        consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity&lt;AutoOrder&gt; deleteAutoOrder(
+        @PathVariable(&quot;order_id&quot;)
+            Long orderId) {
+
+<span class="fc" id="L80">        autoOrderService.delete(orderId);</span>
+
+<span class="fc" id="L82">        return new ResponseEntity&lt;AutoOrder&gt;(HttpStatus.NO_CONTENT);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

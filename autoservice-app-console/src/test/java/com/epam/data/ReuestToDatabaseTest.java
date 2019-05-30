@@ -11,7 +11,7 @@ import java.util.Date;
 
 public class ReuestToDatabaseTest {
 
-    private ConsoleDataFormat consoleDataFormat;
+    ConsoleDataFormat consoleDataFormat;
 
     @Before
     public void setUp() {

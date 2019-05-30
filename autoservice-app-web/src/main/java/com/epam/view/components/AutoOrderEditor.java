@@ -23,19 +23,23 @@ import java.util.Date;
 public class AutoOrderEditor extends VerticalLayout implements KeyNotifier {
 
     private final AutoOrderClient autoOrderClient;
-    private AutoOrder autoOrder;
+    private AutoOrder autoOrder = new AutoOrder();
     private String currentDateString = AutoOrderRestConfig.SIMPLE_DATE_FORMAT.format(new Date());
-    private final TextField orderId = new TextField("", "");
-    private final TextField orderDate = new TextField("", currentDateString);
-    private final TextField ownerName = new TextField("", "");
-    private final Binder<AutoOrder> binder = new Binder<>(AutoOrder.class);
+    private TextField orderId = new TextField("", "");
+    private TextField orderDate = new TextField("", currentDateString);
+    private TextField ownerName = new TextField("", "");
+    private HorizontalLayout orderFieldsToolbar = new HorizontalLayout(orderId, orderDate, ownerName);
+    private Button saveBttn = new Button("Save", VaadinIcon.GAVEL.create());
+    private Button cancelBttn = new Button("Cancel", VaadinIcon.ESC.create());
+    private Button deleteBttn = new Button("Delete", VaadinIcon.TRASH.create());
+    private HorizontalLayout actionsToolbar = new HorizontalLayout();
+
+    Binder<AutoOrder> binder = new Binder<>(AutoOrder.class);
+
     private ChangeHandler changeHandler;
-
     public interface ChangeHandler {
-
         void onChange();
     }
-
     public void setChangeHandler(ChangeHandler changeHandler) {
         this.changeHandler = changeHandler;
     }
@@ -46,13 +50,8 @@ public class AutoOrderEditor extends VerticalLayout implements KeyNotifier {
         orderDate.setEnabled(false);
         ownerName.addThemeVariants(TextFieldVariant.LUMO_ALIGN_RIGHT);
         this.autoOrderClient = autoOrderClient;
-        Button saveBttn = new Button("Save", VaadinIcon.GAVEL.create());
-        Button cancelBttn = new Button("Cancel", VaadinIcon.ESC.create());
-        Button deleteBttn = new Button("Delete", VaadinIcon.TRASH.create());
-        HorizontalLayout actionsToolbar = new HorizontalLayout();
         actionsToolbar.add(cancelBttn, saveBttn, deleteBttn);
         binder.bindInstanceFields(this);
-        HorizontalLayout orderFieldsToolbar = new HorizontalLayout(orderId, orderDate, ownerName);
         add(orderFieldsToolbar, actionsToolbar);
 
         setSpacing(true);
@@ -64,7 +63,6 @@ public class AutoOrderEditor extends VerticalLayout implements KeyNotifier {
         addKeyPressListener(Key.ENTER, e -> save());
         saveBttn.addClickListener(e -> save());
         deleteBttn.addClickListener(e -> deleteOrder());
-        autoOrder = new AutoOrder();
         cancelBttn.addClickListener(e -> editOrder(autoOrder));
         setVisible(false);
     }
@@ -78,7 +76,7 @@ public class AutoOrderEditor extends VerticalLayout implements KeyNotifier {
         if (autoOrder.getOrderId().isEmpty()) {
             autoOrderClient.createNew(autoOrder);
         } else {
-            autoOrderClient.modify(autoOrder, autoOrder);
+            autoOrderClient.updateById(autoOrder.getOrderId(), autoOrder);
         }
         changeHandler.onChange();
     }
@@ -101,6 +99,6 @@ public class AutoOrderEditor extends VerticalLayout implements KeyNotifier {
         orderDate.setValue(newOrder.getOrderDate());
         ownerName.setValue(newOrder.getOwnerName());
         setVisible(true);
-        ownerName.focus();
+        orderDate.focus();
     }
 }

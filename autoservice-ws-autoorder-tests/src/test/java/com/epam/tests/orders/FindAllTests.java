@@ -15,28 +15,31 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 
+import java.awt.*;
+import java.io.IOException;
+
 public class FindAllTests extends TestBase {
 
-    private final Logger log = LogManager.getLogger(FindAllTests.class);
+    private Logger log = LogManager.getLogger(FindAllTests.class);
 
     @Before
-    public void setUp() {
+    public void setUp() throws IOException, AWTException {
         log.info("-->> setUp for " + FindAllTests.class.getSimpleName());
         AutoOrder orderToServer = new AutoOrder()
             .withOrderDate("22.12.2018")
-            .withOwnerName(TestBase.TEST_OWNER_STRING);
+            .withOwnerName("Test Owner");
         log.info("-->> add data to server: " + orderToServer.asString());
         AUTO_ORDER_CONTROLLER.add(orderToServer);
     }
 
     @After
-    public void tearDown() {
+    public void tearDown() throws Exception {
         log.info("<<-- tearDown for " + FindAllTests.class.getSimpleName());
     }
 
     @Test
     @Category(PositiveTests.class)
-    public void findAllSucceed() {
+    public void findAllSucceed() throws IOException, AWTException {
         log.info(">>> @Test findAllSucceed");
         log.info(">>> >> find all data");
         Response findAllResponse = AUTO_ORDER_CONTROLLER.findAll();

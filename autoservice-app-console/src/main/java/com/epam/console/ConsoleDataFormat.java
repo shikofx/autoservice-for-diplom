@@ -8,11 +8,10 @@ import java.util.Date;
 
 public class ConsoleDataFormat implements DateFormat<String> {
 
-
-    private static final String LEGAL_DEVIDERS = "[./]";
-    private static final String COMMON_DEVIDER = "-";
+    public static final String LEGAL_DEVIDERS = "[\\.\\/]";
+    public static final String COMMON_DEVIDER = "-";
     public static final String DATE_FORMAT = "dd-MM-yyyy";
-    private static final String DATE_FORMAT_FULL = "EEE MMM dd HH:mm:ss zzz yyyy";
+    public static final String DATE_FORMAT_FULL = "EEE MMM dd HH:mm:ss zzz yyyy";
 
     @Override
     public Date dateStringToDate(String dateString) {

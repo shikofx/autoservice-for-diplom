@@ -16,23 +16,22 @@ public abstract class SqlEntity implements Entity {
     @Override
     public String dbColumnsName() {
         Field[] fields = this.getClass().getDeclaredFields();
-        StringBuilder fieldsString = new StringBuilder();
+        String fieldsString = "";
         for (int i = 0; i < fields.length; i++) {
             Field field = fields[i];
-            if (i < fields.length - 2) {
-                fieldsString.append(field.getName()).append(" ").append(typeConversion(field.getType().getName()))
-                    .append(", ");
+            if (i < fields.length - 2 && fields.length > 0) {
+                fieldsString += field.getName() + " " + typeConversion(field.getType().getName()) + ", ";
             } else if (i == fields.length - 2) {
-                fieldsString.append(field.getName()).append(" ").append(typeConversion(field.getType().getName()));
+                fieldsString += field.getName() + " " + typeConversion(field.getType().getName());
             }
         }
-        return fieldsString.toString();
+        return fieldsString;
     }
 
     @Override
     public String dbValues() throws IllegalAccessException {
         Field[] fields = this.getClass().getDeclaredFields();
-        StringBuilder fieldsString = new StringBuilder();
+        String fieldsString = "";
         for (int i = 0; i < fields.length; i++) {
             Field field = fields[i];
             String mark = "";
@@ -40,13 +39,13 @@ public abstract class SqlEntity implements Entity {
             if (type.equals("java.lang.String") || type.equals("java.util.Date")) {
                 mark = "'";
             }
-            if (i < fields.length - 2) {
-                fieldsString.append(mark).append(field.get(this)).append(mark).append(", ");
+            if (i < fields.length - 2 && fields.length > 0) {
+                fieldsString += mark + field.get(this) + mark + ", ";
             } else if (i == fields.length - 2) {
-                fieldsString.append(mark).append(field.get(this)).append(mark);
+                fieldsString += mark + field.get(this) + mark;
             }
         }
-        return fieldsString.toString();
+        return fieldsString;
     }
 
     @Override
@@ -62,9 +61,8 @@ public abstract class SqlEntity implements Entity {
                 return "BIGINT";
             case "double":
                 return "DOUBLE";
-            default:
-                return "INCORRECT TYPE";
         }
+        return null;
     }
 
 }

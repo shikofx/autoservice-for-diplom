@@ -19,10 +19,13 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 
+import java.awt.*;
+import java.io.IOException;
+
 @RunWith(DataProviderRunner.class)
 public class ModifyOrderTests extends TestBase {
 
-    private final Logger log = LogManager.getLogger(ModifyOrderTests.class);
+    private Logger log = LogManager.getLogger(ModifyOrderTests.class);
     private AutoOrder orderToModify;
     private AutoOrder orderBeforeModify;
 
@@ -31,7 +34,7 @@ public class ModifyOrderTests extends TestBase {
         log.info("-->> setUp for " + ModifyOrderTests.class.getSimpleName());
         AutoOrder orderToServer = new AutoOrder()
             .withOrderDate("22-12-2017")
-            .withOwnerName(TestBase.TEST_OWNER_STRING);
+            .withOwnerName("Test Owner");
         log.info("-->> add data to server: " + orderToServer.asString());
         orderBeforeModify = AUTO_ORDER_CONTROLLER.add(orderToServer)
             .as(AutoOrder.class);
@@ -48,8 +51,9 @@ public class ModifyOrderTests extends TestBase {
 
     @Test
     @Category(PositiveTests.class)
-
-    public void modifyOrderIsSucceed() {
+//    @UseDataProvider(value = "ordersForModify",
+//        location = SimpleDataProvider.class)
+    public void modifyOrderIsSucceed(/*String date, String owner*/) throws IOException, AWTException {
         log.info(">>> @Test modifyOrderIsSucceed");
         log.info(">>> >>>Order " + orderBeforeModify.asString());
         log.info(">>> >> modify as " + orderToModify.asString());
@@ -70,7 +74,9 @@ public class ModifyOrderTests extends TestBase {
 
     @Test
     @Category({NegativeTests.class, BrokenTests.class})
-    public void modifyWithEmptyFieldsFailed() {
+//    @UseDataProvider(value = "ordersWithEmptyFields",
+//        location = SimpleDataProvider.class)
+    public void modifyWithEmptyFieldsFailed(/*String date, String owner*/) throws IOException, AWTException {
         orderToModify = new AutoOrder()
             .withId(orderBeforeModify.getOrderId())
             .withOrderDate("date")
@@ -85,14 +91,18 @@ public class ModifyOrderTests extends TestBase {
         log.info(">>> >> found " + orderAfterModify.asString());
         log.info(">>> >> assertions");
         SoftAssertions assertions = new SoftAssertions();
-        assertions.assertThat(modifyResponse.statusCode()).isEqualTo(SC_OK);
-        assertions.assertAll();
+//        assertions.assertThat(modifyResponse.statusCode()).isEqualTo(SC_INTERNAL_SERVER_ERROR);
+//        assertions.assertThat(orderBeforeModify.getOrderId()).isEqualTo(orderAfterModify.getOrderId());
+//        assertions.assertThat(orderBeforeModify.getOrderDate()).isEqualTo(orderAfterModify.getOrderDate());
+//        assertions.assertThat(orderBeforeModify.getOwnerName()).isEqualTo(orderAfterModify.getOwnerName());
+//        assertions.assertAll();
         log.info("<<< @Test modifyWithEmptyFieldsFailed");
     }
 
     @Test
     @Category({NegativeTests.class, BrokenTests.class})
-    public void modifyWithNullFieldsFailed() {
+//    @UseDataProvider(value = "ordersWithNullFields", location = SimpleDataProvider.class)
+    public void modifyWithNullFieldsFailed(/*String date, String owner*/) throws IOException, AWTException {
         orderToModify = new AutoOrder()
             .withId(orderBeforeModify.getOrderId())
             .withOrderDate("date")
@@ -107,8 +117,11 @@ public class ModifyOrderTests extends TestBase {
         log.info(">>> >> found " + orderAfterModify.asString());
         log.info(">>> >> assertions");
         SoftAssertions assertions = new SoftAssertions();
-        assertions.assertThat(modifyResponse.statusCode()).isEqualTo(SC_OK);
-        assertions.assertAll();
+//        assertions.assertThat(modifyResponse.statusCode()).isEqualTo(SC_INTERNAL_SERVER_ERROR);
+//        assertions.assertThat(orderBeforeModify.getOrderId()).isEqualTo(orderAfterModify.getOrderId());
+//        assertions.assertThat(orderBeforeModify.getOrderDate()).isEqualTo(orderAfterModify.getOrderDate());
+//        assertions.assertThat(orderBeforeModify.getOwnerName()).isEqualTo(orderAfterModify.getOwnerName());
+//        assertions.assertAll();
         log.info("<<< @Test addNewSucceed");
     }
 }

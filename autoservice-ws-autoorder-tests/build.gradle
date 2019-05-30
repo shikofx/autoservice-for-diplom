@@ -1,11 +1,10 @@
-group "$applicationGroup"
-version "$applicationVersion"
+group 'com.epam'
+version '1.0-SNAPSHOT'
 
+apply plugin: 'java'
 apply plugin: 'jsonschema2pojo'
 
-repositories {
-    jcenter()
-}
+sourceCompatibility = 1.8
 
 buildscript {
     repositories {
@@ -14,17 +13,32 @@ buildscript {
 
     dependencies {
         classpath 'org.jsonschema2pojo:jsonschema2pojo-gradle-plugin:1.0.1'
-
-
     }
+}
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+    jcenter()
+    maven { url 'https://jitpack.io' }
+    maven { url "http://dl.bintray.com/epam/reportportal" }
 }
 
 dependencies {
     testImplementation('org.junit.jupiter:junit-jupiter:5.4.2')
 
+    testCompile group: 'org.assertj',
+                name: 'assertj-core',
+                version: '3.12.2'
+    testCompile group: 'com.tngtech.java',
+                name: 'junit-dataprovider',
+                version: '1.13.1'
     compile group: 'com.jayway.restassured',
             name: 'rest-assured',
             version: '2.9.0'
+    compile group: 'com.fasterxml.jackson.core',
+            name: 'jackson-databind',
+            version: '2.9.8'
     compile group: 'commons-lang',
             name: 'commons-lang',
             version: '2.6'
@@ -34,6 +48,12 @@ dependencies {
     compile group: 'com.google.guava',
             name: 'guava',
             version: '27.1-jre'
+    compile group: 'com.epam.reportportal',
+            name: 'logger-java-log4j',
+            version: '4.0.1'
+    compile group: 'com.epam.reportportal',
+            name: 'agent-java-junit',
+            version: '4.1.0'
     // Required if generating JSR-303 annotations
     compile group: 'javax.validation',
             name: 'validation-api',
@@ -48,11 +68,11 @@ dependencies {
             version:'2.2'
 }
 
-//ext {
-//    junitFoundation = configurations.compile.resolvedConfiguration.resolvedArtifacts.
-//            find { it.name == 'junit-foundation' }
-//}
-//
+ext {
+    junitFoundation = configurations.compile.resolvedConfiguration.resolvedArtifacts.
+            find { it.name == 'junit-foundation' }
+}
+
 //test.doFirst {
 //    jvmArgs "-javaagent:${junitFoundation.file}"
 //}

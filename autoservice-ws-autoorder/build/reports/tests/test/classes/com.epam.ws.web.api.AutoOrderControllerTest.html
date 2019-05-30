@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class com.epam.ws.web.api.AutoOrderControllerTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class com.epam.ws.web.api.AutoOrderControllerTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/com.epam.ws.web.api.html">com.epam.ws.web.api</a> &gt; AutoOrderControllerTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">6</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">0</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">0.106s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox success" id="successRate">
+<div class="percent">100%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Tests</a>
+</li>
+<li>
+<a href="#tab1">Standard output</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="success">testCreateAutoOrder</td>
+<td class="success">0.021s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testDeleteAutoOrder</td>
+<td class="success">0.028s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testGetAutoOrder</td>
+<td class="success">0.013s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testGetAutoOrderNotFound</td>
+<td class="success">0.012s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testGetAutoOrders</td>
+<td class="success">0.015s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testUpdateAutoOrder</td>
+<td class="success">0.017s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab1" class="tab">
+<h2>Standard output</h2>
+<span class="code">
+<pre>2019-05-29 11:30:37.318  INFO 7152 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.epam.ws.web.api.AutoOrderControllerTest], using SpringBootContextLoader
+2019-05-29 11:30:37.319  INFO 7152 --- [    Test worker] o.s.t.c.support.AbstractContextLoader    : Could not detect default resource locations for test class [com.epam.ws.web.api.AutoOrderControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+2019-05-29 11:30:37.325  INFO 7152 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener]
+2019-05-29 11:30:37.327  INFO 7152 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@4b09a4ab, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@4b6a3a9d, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@60b7cb7c, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@4fd8baf2, org.springframework.test.context.support.DirtiesContextTestExecutionListener@49f2735e, org.springframework.test.context.transaction.TransactionalTestExecutionListener@5356062f, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@d64db12, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@761ff66, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@5d531457, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@3e5706ac, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@15c0f63f, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@1d52a12e]
+2019-05-29 11:30:37.364  INFO 7152 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@4db59ecc testClass = AutoOrderControllerTest, testInstance = com.epam.ws.web.api.AutoOrderControllerTest@288ad651, testMethod = testDeleteAutoOrder@AutoOrderControllerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@5866ff7f testClass = AutoOrderControllerTest, locations = '{}', classes = '{class com.epam.Application, class com.epam.Application}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@4ae7e621, org.springframework.boot.test.context.SpringBootTestContextCustomizer@261a7b0c, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@745196a5, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@529eaa02, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.test.context.web.socket.MockServerContainerContextCustomizer@12a01099], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@1d51830f]; rollback [true]
+2019-05-29 11:30:37.367  INFO 7152 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring FrameworkServlet ''
+2019-05-29 11:30:37.368  INFO 7152 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2019-05-29 11:30:37.380  INFO 7152 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 12 ms
+2019-05-29 11:30:37.389  INFO 7152 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@4db59ecc testClass = AutoOrderControllerTest, testInstance = com.epam.ws.web.api.AutoOrderControllerTest@288ad651, testMethod = testDeleteAutoOrder@AutoOrderControllerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@5866ff7f testClass = AutoOrderControllerTest, locations = '{}', classes = '{class com.epam.Application, class com.epam.Application}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@4ae7e621, org.springframework.boot.test.context.SpringBootTestContextCustomizer@261a7b0c, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@745196a5, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@529eaa02, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.test.context.web.socket.MockServerContainerContextCustomizer@12a01099], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]]]
+2019-05-29 11:30:37.395  INFO 7152 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@4db59ecc testClass = AutoOrderControllerTest, testInstance = com.epam.ws.web.api.AutoOrderControllerTest@3824b27, testMethod = testGetAutoOrder@AutoOrderControllerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@5866ff7f testClass = AutoOrderControllerTest, locations = '{}', classes = '{class com.epam.Application, class com.epam.Application}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@4ae7e621, org.springframework.boot.test.context.SpringBootTestContextCustomizer@261a7b0c, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@745196a5, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@529eaa02, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.test.context.web.socket.MockServerContainerContextCustomizer@12a01099], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@1d51830f]; rollback [true]
+2019-05-29 11:30:37.396  INFO 7152 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring FrameworkServlet ''
+2019-05-29 11:30:37.396  INFO 7152 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2019-05-29 11:30:37.398  INFO 7152 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 2 ms
+2019-05-29 11:30:37.405  INFO 7152 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@4db59ecc testClass = AutoOrderControllerTest, testInstance = com.epam.ws.web.api.AutoOrderControllerTest@3824b27, testMethod = testGetAutoOrder@AutoOrderControllerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@5866ff7f testClass = AutoOrderControllerTest, locations = '{}', classes = '{class com.epam.Application, class com.epam.Application}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@4ae7e621, org.springframework.boot.test.context.SpringBootTestContextCustomizer@261a7b0c, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@745196a5, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@529eaa02, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.test.context.web.socket.MockServerContainerContextCustomizer@12a01099], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]]]
+2019-05-29 11:30:37.410  INFO 7152 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@4db59ecc testClass = AutoOrderControllerTest, testInstance = com.epam.ws.web.api.AutoOrderControllerTest@5dc52ae6, testMethod = testUpdateAutoOrder@AutoOrderControllerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@5866ff7f testClass = AutoOrderControllerTest, locations = '{}', classes = '{class com.epam.Application, class com.epam.Application}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@4ae7e621, org.springframework.boot.test.context.SpringBootTestContextCustomizer@261a7b0c, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@745196a5, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@529eaa02, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.test.context.web.socket.MockServerContainerContextCustomizer@12a01099], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@1d51830f]; rollback [true]
+2019-05-29 11:30:37.411  INFO 7152 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring FrameworkServlet ''
+2019-05-29 11:30:37.411  INFO 7152 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2019-05-29 11:30:37.413  INFO 7152 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 2 ms
+2019-05-29 11:30:37.422  INFO 7152 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@4db59ecc testClass = AutoOrderControllerTest, testInstance = com.epam.ws.web.api.AutoOrderControllerTest@5dc52ae6, testMethod = testUpdateAutoOrder@AutoOrderControllerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@5866ff7f testClass = AutoOrderControllerTest, locations = '{}', classes = '{class com.epam.Application, class com.epam.Application}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@4ae7e621, org.springframework.boot.test.context.SpringBootTestContextCustomizer@261a7b0c, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@745196a5, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@529eaa02, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.test.context.web.socket.MockServerContainerContextCustomizer@12a01099], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]]]
+2019-05-29 11:30:37.428  INFO 7152 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@4db59ecc testClass = AutoOrderControllerTest, testInstance = com.epam.ws.web.api.AutoOrderControllerTest@15f84239, testMethod = testCreateAutoOrder@AutoOrderControllerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@5866ff7f testClass = AutoOrderControllerTest, locations = '{}', classes = '{class com.epam.Application, class com.epam.Application}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@4ae7e621, org.springframework.boot.test.context.SpringBootTestContextCustomizer@261a7b0c, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@745196a5, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@529eaa02, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.test.context.web.socket.MockServerContainerContextCustomizer@12a01099], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@1d51830f]; rollback [true]
+2019-05-29 11:30:37.429  INFO 7152 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring FrameworkServlet ''
+2019-05-29 11:30:37.429  INFO 7152 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2019-05-29 11:30:37.431  INFO 7152 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 2 ms
+2019-05-29 11:30:37.443  INFO 7152 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@4db59ecc testClass = AutoOrderControllerTest, testInstance = com.epam.ws.web.api.AutoOrderControllerTest@15f84239, testMethod = testCreateAutoOrder@AutoOrderControllerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@5866ff7f testClass = AutoOrderControllerTest, locations = '{}', classes = '{class com.epam.Application, class com.epam.Application}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@4ae7e621, org.springframework.boot.test.context.SpringBootTestContextCustomizer@261a7b0c, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@745196a5, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@529eaa02, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.test.context.web.socket.MockServerContainerContextCustomizer@12a01099], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]]]
+2019-05-29 11:30:37.451  INFO 7152 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@4db59ecc testClass = AutoOrderControllerTest, testInstance = com.epam.ws.web.api.AutoOrderControllerTest@1f93328b, testMethod = testGetAutoOrderNotFound@AutoOrderControllerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@5866ff7f testClass = AutoOrderControllerTest, locations = '{}', classes = '{class com.epam.Application, class com.epam.Application}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@4ae7e621, org.springframework.boot.test.context.SpringBootTestContextCustomizer@261a7b0c, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@745196a5, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@529eaa02, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.test.context.web.socket.MockServerContainerContextCustomizer@12a01099], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@1d51830f]; rollback [true]
+2019-05-29 11:30:37.452  INFO 7152 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring FrameworkServlet ''
+2019-05-29 11:30:37.453  INFO 7152 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2019-05-29 11:30:37.454  INFO 7152 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 1 ms
+2019-05-29 11:30:37.460  INFO 7152 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@4db59ecc testClass = AutoOrderControllerTest, testInstance = com.epam.ws.web.api.AutoOrderControllerTest@1f93328b, testMethod = testGetAutoOrderNotFound@AutoOrderControllerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@5866ff7f testClass = AutoOrderControllerTest, locations = '{}', classes = '{class com.epam.Application, class com.epam.Application}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@4ae7e621, org.springframework.boot.test.context.SpringBootTestContextCustomizer@261a7b0c, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@745196a5, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@529eaa02, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.test.context.web.socket.MockServerContainerContextCustomizer@12a01099], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]]]
+2019-05-29 11:30:37.466  INFO 7152 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@4db59ecc testClass = AutoOrderControllerTest, testInstance = com.epam.ws.web.api.AutoOrderControllerTest@6cb7ec92, testMethod = testGetAutoOrders@AutoOrderControllerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@5866ff7f testClass = AutoOrderControllerTest, locations = '{}', classes = '{class com.epam.Application, class com.epam.Application}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@4ae7e621, org.springframework.boot.test.context.SpringBootTestContextCustomizer@261a7b0c, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@745196a5, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@529eaa02, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.test.context.web.socket.MockServerContainerContextCustomizer@12a01099], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@1d51830f]; rollback [true]
+2019-05-29 11:30:37.467  INFO 7152 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring FrameworkServlet ''
+2019-05-29 11:30:37.467  INFO 7152 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization started
+2019-05-29 11:30:37.469  INFO 7152 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : FrameworkServlet '': initialization completed in 2 ms
+2019-05-29 11:30:37.471  INFO 7152 --- [    Test worker] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
+2019-05-29 11:30:37.477  INFO 7152 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@4db59ecc testClass = AutoOrderControllerTest, testInstance = com.epam.ws.web.api.AutoOrderControllerTest@6cb7ec92, testMethod = testGetAutoOrders@AutoOrderControllerTest, testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@5866ff7f testClass = AutoOrderControllerTest, locations = '{}', classes = '{class com.epam.Application, class com.epam.Application}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@4ae7e621, org.springframework.boot.test.context.SpringBootTestContextCustomizer@261a7b0c, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@745196a5, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@529eaa02, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.test.context.web.socket.MockServerContainerContextCustomizer@12a01099], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]]]
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 5.3</a> at May 29, 2019 11:30:37 AM</p>
+</div>
+</div>
+</body>
+</html>

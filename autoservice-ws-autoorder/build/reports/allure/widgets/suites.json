@@ -1,0 +1,37 @@
+{
+  "total" : 3,
+  "items" : [ {
+    "uid" : "1bb477cf19369dfbf939a59a599f3038",
+    "name" : "com.epam.ws.service.AutoOrderServiceTest",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 6,
+      "unknown" : 0,
+      "total" : 6
+    }
+  }, {
+    "uid" : "4e2b6f768e9f1f5fdeb0a883831cb04a",
+    "name" : "com.epam.ws.web.api.AutoOrderControllerTest",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 6,
+      "unknown" : 0,
+      "total" : 6
+    }
+  }, {
+    "uid" : "521cd1cc83f01a6ecf9e17cba18c0120",
+    "name" : "com.epam.ws.web.api.AutoOrderControllerMocksTest",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 5,
+      "unknown" : 0,
+      "total" : 5
+    }
+  } ]
+}

@@ -1,2 +1,8 @@
-rootProject.name = 'autoservice'
+rootProject.name = 'autoservice-for-tests'
+include 'autoservice-app-console'
+include 'autoservice-app-web'
+include 'autoservice-app-web-tests'
+include 'autoservice-ws-autoorder'
+include 'autoservice-ws-autoorder-tests'
+
 

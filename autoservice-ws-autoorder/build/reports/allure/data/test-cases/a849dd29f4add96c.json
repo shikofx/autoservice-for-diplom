@@ -1,0 +1,50 @@
+{
+  "uid" : "a849dd29f4add96c",
+  "name" : "testGetAutoOrderNotFound",
+  "fullName" : "com.epam.ws.web.api.AutoOrderControllerTest.testGetAutoOrderNotFound",
+  "historyId" : "6f0f17ddb93ff64d6198a7257aa36c57",
+  "time" : {
+    "start" : 1559118637449,
+    "stop" : 1559118637460,
+    "duration" : 11
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "com.epam.ws.web.api"
+  }, {
+    "name" : "testClass",
+    "value" : "com.epam.ws.web.api.AutoOrderControllerTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "testGetAutoOrderNotFound"
+  }, {
+    "name" : "suite",
+    "value" : "com.epam.ws.web.api.AutoOrderControllerTest"
+  }, {
+    "name" : "host",
+    "value" : "EPBYMINW6849"
+  }, {
+    "name" : "thread",
+    "value" : "7152@EPBYMINW6849.Test worker(13)"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "a849dd29f4add96c.json",
+  "parameterValues" : [ ]
+}

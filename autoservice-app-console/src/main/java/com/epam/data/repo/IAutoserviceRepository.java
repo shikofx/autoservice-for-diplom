@@ -4,7 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-interface IAutoserviceRepository<T> {
+public interface IAutoserviceRepository<T> {
 
     void createTable(T o) throws SQLException;
 

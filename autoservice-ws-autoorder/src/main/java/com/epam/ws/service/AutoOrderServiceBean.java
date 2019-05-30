@@ -15,12 +15,14 @@ public class AutoOrderServiceBean implements AutoOrderService {
 
     @Override
     public Collection<AutoOrder> findAll() {
-        return autoOrderRepository.findAll();
+        Collection<AutoOrder> autoOrders = autoOrderRepository.findAll();
+        return autoOrders;
     }
 
     @Override
     public AutoOrder findOne(Long orderId) {
-        return autoOrderRepository.findOne(orderId);
+        AutoOrder autoOrder = autoOrderRepository.findOne(orderId);
+        return autoOrder;
     }
 
     @Override
@@ -29,7 +31,8 @@ public class AutoOrderServiceBean implements AutoOrderService {
 //            Cannot create AutoOrder with specified ID value
             return null;
         }
-        return autoOrderRepository.save(autoOrder);
+        AutoOrder savedAutoOrder = autoOrderRepository.save(autoOrder);
+        return savedAutoOrder;
     }
 
     @Override
@@ -39,7 +42,8 @@ public class AutoOrderServiceBean implements AutoOrderService {
 //            Cannot update AutoOrder that hasn't been persisted
             return null;
         }
-        return autoOrderRepository.save(autoOrder);
+        AutoOrder updatedAutoOrder = autoOrderRepository.save(autoOrder);
+        return updatedAutoOrder;
     }
 
     @Override

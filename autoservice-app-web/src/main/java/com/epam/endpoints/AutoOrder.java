@@ -29,6 +29,11 @@ public class AutoOrder {
         this.orderId = "";
     }
 
+    public AutoOrder withOrderId(String orderId) {
+        this.orderId = orderId;
+        return this;
+    }
+
     public void setOrderId(String orderId) {
         this.orderId = orderId;
     }
@@ -98,17 +103,13 @@ public class AutoOrder {
             return false;
         }
         AutoOrder autoOrder = (AutoOrder) o;
-        return Objects.equals(orderDate, autoOrder.orderDate) &&
+        return Objects.equals(orderId, autoOrder.orderId) &&
+               Objects.equals(orderDate, autoOrder.orderDate) &&
                Objects.equals(ownerName, autoOrder.ownerName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(orderDate, ownerName);
-    }
-
-    public AutoOrder withOrderId(String orderId) {
-        this.orderId = orderId;
-        return this;
+        return Objects.hash(orderId, orderDate, ownerName);
     }
 }

@@ -17,16 +17,18 @@ import java.util.List;
 
 public class AutoOrderRepositoryTest {
 
-    private AutoOrder autoOrder;
-    private AutoOrderRepository orderRepository;
-    private List<AutoOrder> ordersList;
+    String dbName;
+    AutoOrder autoOrder;
+    AutoOrderRepository orderRepository;
+    DatabaseController databaseController;
+    List<AutoOrder> ordersList;
 
     @Before
     public void setUp() throws SQLException, ClassNotFoundException {
 
         autoOrder = new AutoOrder();
-        String dbName = "test_base";
-        DatabaseController databaseController = new DerbyDataBaseController(dbName);
+        dbName = "test_base";
+        databaseController = new DerbyDataBaseController(dbName);
         orderRepository = new AutoOrderRepository(databaseController);
         autoOrder = new AutoOrder();
         autoOrder.setId(1);

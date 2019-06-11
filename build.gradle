@@ -84,6 +84,11 @@ subprojects {
         compile group: 'com.epam.reportportal',
                 name: 'agent-java-junit',
                 version: "${rp_agentJunitVersion}"
+
+    }
+
+    subprojects {":autocervice-app-web"
+        compile project(":autoservice-ws-autoorder")
     }
 
 //    Allure report
@@ -115,5 +120,18 @@ subprojects {
 //        testLogging.showStandardStreams = true
 //        finalizedBy(generateAllureReport)
 //        finalizedBy(jacocoTestReport)
+//    }
+
+    
+//    project(':autoservice-ws-autoorder-tests'){
+//        dependencies{
+//            project(':autoservice-ws-autoorder')
+//        }
+//    }
+//
+//    project(':autoservice-app-web'){
+//        dependencies{
+//            project(':autoservice-ws-autoorder')
+//        }
 //    }
 }

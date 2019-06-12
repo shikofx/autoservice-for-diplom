@@ -26,9 +26,9 @@ public class MainView extends VerticalLayout {
 
     @Autowired
     public MainView() {
-        gridAutoOrder.setHeight("300px");
+//        gridAutoOrder.setHeight("300px");
         gridAutoOrder.setColumns("orderId", "orderDate", "ownerName");
-        gridAutoOrder.getColumnByKey("orderId").setWidth("120px").setFlexGrow(0);
+//        gridAutoOrder.getColumnByKey("orderId").setWidth("120px").setFlexGrow(0);
 
         filter.focus();
         filter.setValueChangeMode(ValueChangeMode.EAGER);

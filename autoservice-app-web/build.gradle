@@ -8,7 +8,7 @@ version "$applicationVersion"
 
 
 apply plugin: 'io.spring.dependency-management'
-
+//apply plugin: 'war'
 
 dependencies {
     testImplementation group: 'org.springframework.boot',

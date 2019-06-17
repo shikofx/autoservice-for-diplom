@@ -29,7 +29,7 @@ allprojects {
 subprojects {
     apply plugin: 'java'
     apply plugin: 'idea'
-
+    
     sourceCompatibility = 1.8
     targetCompatibility = 1.8
 
@@ -87,10 +87,19 @@ subprojects {
 
     }
 
-    subprojects {":autocervice-app-web"
-        compile project(":autoservice-ws-autoorder")
-    }
-
+//    configure(":autocervice-app-web"){
+//        task buildWar(dependsOn: assemble, type: CubaWarBuilding) {
+//            appName = 'autocervice-app-web'
+//            appHome = '${app.home}'
+//        }
+//    }
+//
+//    configure(":autocervice-ws-autoorder") {
+//        task buildWar(dependsOn: assemble, type: CubaWarBuilding) {
+//            appName = 'app'
+//            appHome = '${app.home}'
+//        }
+//    }
 //    Allure report
 //    task generateAllureReport(type: Exec) {
 //        commandLine 'cmd', '/c', 'allure', 'generate', '-c', "$projectDir/build/allure-results",

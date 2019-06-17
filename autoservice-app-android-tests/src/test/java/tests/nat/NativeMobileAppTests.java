@@ -21,7 +21,7 @@ public class NativeMobileAppTests {
     @BeforeClass
     public static void init() {
 //        appCapabilities = new NativeMobileApp("appium-epam-cloud.properties"); - can't launch install native app
-//        appCapabilities = new NativeMobileApp("appium-real.properties"); - for A4.2.2 there is no locators by ID
+//        appCapabilities = new NativeMobileApp("appium-real.properties");// - for A4.2.2 there is no locators by ID
         appCapabilities = new NativeMobileApp("appium-emulator.properties");
         driver = appCapabilities.getDriver();
     }

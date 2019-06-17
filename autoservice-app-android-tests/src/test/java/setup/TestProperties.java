@@ -6,22 +6,36 @@ import java.util.Properties;
 
 public class TestProperties {
 
-    Properties currentProperties = new Properties();
+    public static final String RESOURCE_PATH = System.getProperty("user.dir") +
+                                               "/src/test/resources/";
+    private String propertiesFile;
+    Properties currentProperties;
+
+    public TestProperties(String propertiesFile) {
+        currentProperties = new Properties();
+        this.propertiesFile = propertiesFile;
+    }
+
+    protected String getProperties(String propertyKey) {
+        try {
+            if (!currentProperties.containsKey(propertyKey)) {
+
+                currentProperties = getCurrentProperties();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return currentProperties.getProperty(String.valueOf(propertyKey), null);
+    }
 
     Properties getCurrentProperties() throws IOException {
         FileInputStream
             inputStream =
-            new FileInputStream(System.getProperty("user.dir") + "/src/test/resources/mobile-driver.properties");
+            new FileInputStream(RESOURCE_PATH + propertiesFile);
         currentProperties.load(inputStream);
         inputStream.close();
         return currentProperties;
     }
 
-    protected String getProperties(String propertyKey) throws IOException {
-        if (!currentProperties.containsKey(propertyKey)) {
-            currentProperties = getCurrentProperties();
-        }
-        return currentProperties.getProperty(String.valueOf(propertyKey), null);
-    }
 
 }

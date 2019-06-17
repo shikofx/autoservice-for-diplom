@@ -1,0 +1,242 @@
+[
+  {
+    "desiredCapabilities": {
+      "platformName": "Android",
+      "platformVersion": "7.1.1",
+      "deviceName": "ZTE  BLADE A0620",
+      "udid": "320783894496"
+    }
+  },
+  {
+    "desiredCapabilities": {
+      "platformName": "Android",
+      "platformVersion": "8.0.0",
+      "deviceName": "LGE Nexus 5X",
+      "udid": "008f8f9d816d114d"
+    }
+  },
+  {
+    "desiredCapabilities": {
+      "platformName": "Android",
+      "platformVersion": "8.0.0",
+      "deviceName": "SAMSUNG SM-G960F",
+      "udid": "1cfbc28307017ece"
+    }
+  },
+  {
+    "desiredCapabilities": {
+      "platformName": "Android",
+      "platformVersion": "8.1.0",
+      "deviceName": "HMD GLOBAL  1",
+      "udid": "FRTBA80615001370"
+    }
+  },
+  {
+    "desiredCapabilities": {
+      "platformName": "Android",
+      "platformVersion": "8.1.0",
+      "deviceName": "GOOGLE Pixel 2 XL",
+      "udid": "802KPFX1550899"
+    }
+  },
+  {
+    "desiredCapabilities": {
+      "platformName": "Android",
+      "platformVersion": "5.1.1",
+      "deviceName": "SAMSUNG SM-J320F",
+      "udid": "4200f2f39a014500"
+    }
+  },
+  {
+    "desiredCapabilities": {
+      "platformName": "Android",
+      "platformVersion": "9",
+      "deviceName": "SAMSUNG SM-G965F",
+      "udid": "25a3bae4311c7ece"
+    }
+  },
+  {
+    "desiredCapabilities": {
+      "platformName": "Android",
+      "platformVersion": "8.1.0",
+      "deviceName": "SAMSUNG SM-N960F",
+      "udid": "2aa45cc87e3f7ece"
+    }
+  },
+  {
+    "desiredCapabilities": {
+      "platformName": "Android",
+      "platformVersion": "8.1.0",
+      "deviceName": "SAMSUNG SM-T580",
+      "udid": "5200dd305a7a15f7"
+    }
+  },
+  {
+    "desiredCapabilities": {
+      "platformName": "Android",
+      "platformVersion": "7.1.1",
+      "deviceName": "SAMSUNG SM-T355",
+      "udid": "9c8e1e58"
+    }
+  },
+  {
+    "desiredCapabilities": {
+      "platformName": "Android",
+      "platformVersion": "8.0.0",
+      "deviceName": "SAMSUNG SM-G960U1",
+      "udid": "584d494450573398"
+    }
+  },
+  {
+    "desiredCapabilities": {
+      "platformName": "Android",
+      "platformVersion": "8.1.0",
+      "deviceName": "SAMSUNG SM-J701F",
+      "udid": "520029ade81da58f"
+    }
+  },
+  {
+    "desiredCapabilities": {
+      "platformName": "Android",
+      "platformVersion": "7.0",
+      "deviceName": "SAMSUNG SM-T813",
+      "udid": "68d46040051cd756"
+    }
+  },
+  {
+    "desiredCapabilities": {
+      "platformName": "Android",
+      "platformVersion": "8.1.0",
+      "deviceName": "SAMSUNG SM-J701F",
+      "udid": "52002bc8e8c8a55b"
+    }
+  },
+  {
+    "desiredCapabilities": {
+      "platformName": "Android",
+      "platformVersion": "7.1.1",
+      "deviceName": "SAMSUNG SM-T355",
+      "udid": "7f53ce4e"
+    }
+  },
+  {
+    "desiredCapabilities": {
+      "platformName": "Android",
+      "platformVersion": "8.0.0",
+      "deviceName": "SONY G3112",
+      "udid": "CQ3000DJ6C"
+    }
+  },
+  {
+    "desiredCapabilities": {
+      "platformName": "Android",
+      "platformVersion": "8.1.0",
+      "deviceName": "HUAWEI Nexus 6P",
+      "udid": "84B7N16302004170"
+    }
+  },
+  {
+    "desiredCapabilities": {
+      "platformName": "Android",
+      "platformVersion": "9",
+      "deviceName": "GOOGLE Pixel 3",
+      "udid": "89UX0H10H"
+    }
+  },
+  {
+    "desiredCapabilities": {
+      "platformName": "Android",
+      "platformVersion": "6.0.1",
+      "deviceName": "SAMSUNG SM-G532F",
+      "udid": "9201c29b8dcf3597"
+    }
+  },
+  {
+    "desiredCapabilities": {
+      "platformName": "Android",
+      "platformVersion": "6.0.1",
+      "deviceName": "SAMSUNG SM-G532F",
+      "udid": "92010481bcf335e3"
+    }
+  },
+  {
+    "desiredCapabilities": {
+      "platformName": "Android",
+      "platformVersion": "8.0.0",
+      "deviceName": "SAMSUNG SM-G955F",
+      "udid": "ce071717c49314670b"
+    }
+  },
+  {
+    "desiredCapabilities": {
+      "platformName": "Android",
+      "platformVersion": "7.0",
+      "deviceName": "LGE LG-H870S",
+      "udid": "LGH870S9c2f6097"
+    }
+  },
+  {
+    "desiredCapabilities": {
+      "platformName": "Android",
+      "platformVersion": "8.0.0",
+      "deviceName": "GOOGLE Pixel",
+      "udid": "FA6990306081"
+    }
+  },
+  {
+    "desiredCapabilities": {
+      "platformName": "Android",
+      "platformVersion": "8.0.0",
+      "deviceName": "SAMSUNG SM-G955F",
+      "udid": "ce11171b616eb8c30c"
+    }
+  },
+  {
+    "desiredCapabilities": {
+      "platformName": "Android",
+      "platformVersion": "8.1.0",
+      "deviceName": "HMD GLOBAL  2.1",
+      "udid": "E2MBA80831003116"
+    }
+  },
+  {
+    "desiredCapabilities": {
+      "platformName": "Android",
+      "platformVersion": "6.0.1",
+      "deviceName": "MOTOROLA Nexus 6",
+      "udid": "ZX1G322W78"
+    }
+  },
+  {
+    "desiredCapabilities": {
+      "platformName": "Android",
+      "platformVersion": "8.1.0",
+      "deviceName": "HUAWEI CLT-L29",
+      "udid": "WCR7N18B06001636"
+    }
+  },
+  {
+    "desiredCapabilities": {
+      "platformName": "Android",
+      "platformVersion": "5.1.1",
+      "deviceName": "MOTOROLA XT1562",
+      "udid": "ZY222TMZQW"
+    }
+  },
+  {
+    "desiredCapabilities": {
+      "platformName": "Android",
+      "platformVersion": "8.0.0",
+      "deviceName": "SAMSUNG SM-G955F",
+      "udid": "ce11171b616eb8fc0c"
+    }
+  },
+  {
+    "desiredCapabilities": {
+      "platformName": "Android",
+      "platformVersion": "7.1.1",
+      "deviceName": "MOTOROLA Moto Z2 Play",
+      "udid": "ZY224H5S5V"
+    }
+  }
+]

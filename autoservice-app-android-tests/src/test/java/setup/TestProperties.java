@@ -16,7 +16,7 @@ public class TestProperties {
         this.propertiesFile = propertiesFile;
     }
 
-    protected String getProperties(String propertyKey) {
+    public String getProperty(String propertyKey) {
         try {
             if (!currentProperties.containsKey(propertyKey)) {
 

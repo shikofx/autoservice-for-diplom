@@ -1,15 +1,17 @@
-package scenarios.nat;
+package tests.nat;
 
+import static java.util.Optional.ofNullable;
+
+import applications.NativeMobileApp;
 import io.appium.java_client.android.AndroidDriver;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import setup.NativeMobileApp;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.net.MalformedURLException;
-import java.util.concurrent.TimeUnit;
 
 public class NativeMobileAppTests {
 
@@ -18,11 +20,10 @@ public class NativeMobileAppTests {
 
     @BeforeClass
     public static void init() {
-        appCapabilities = new NativeMobileApp();
+//        appCapabilities = new NativeMobileApp("appium-epam-cloud.properties"); - can't launch install native app
+//        appCapabilities = new NativeMobileApp("appium-real.properties"); - for A4.2.2 there is no locators by ID
+        appCapabilities = new NativeMobileApp("appium-emulator.properties");
         driver = appCapabilities.getDriver();
-        driver.manage().timeouts()
-            .pageLoadTimeout(5, TimeUnit.MINUTES)
-            .implicitlyWait(90, TimeUnit.SECONDS);
     }
 
     @Test
@@ -39,7 +40,7 @@ public class NativeMobileAppTests {
 
     @AfterClass
     public static void deinit() {
-//        driver.quit();
+        ofNullable(driver).ifPresent(RemoteWebDriver::quit);
     }
 
 }

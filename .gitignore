@@ -15,4 +15,4 @@ build/
 !/settings.gradle
 !gradle-wrapper.jar
 
-/gradle/
+#/gradle/

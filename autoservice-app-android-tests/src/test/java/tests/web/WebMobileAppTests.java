@@ -2,7 +2,7 @@ package tests.web;
 
 import static java.util.Optional.ofNullable;
 
-import applications.WebMobileApp;
+import application.web.WebMobileApp;
 import io.appium.java_client.android.AndroidDriver;
 import org.junit.After;
 import org.junit.AfterClass;

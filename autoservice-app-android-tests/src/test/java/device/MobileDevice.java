@@ -29,15 +29,15 @@ public class MobileDevice {
         DEVICE_NAME_PROPERTY = appiumProperties.getProperty("deviceName");
         DEVICE_UDID_PROPERTY = appiumProperties.getProperty("deviceUdid");
 
-        capabilities = capabilities = new DesiredCapabilities();
+        capabilities = new DesiredCapabilities();
         capabilities.setCapability(DEVICE_NAME, DEVICE_NAME_PROPERTY);
         capabilities.setCapability(UDID, DEVICE_UDID_PROPERTY);
         capabilities.setCapability(PLATFORM_NAME, PLATFORM_NAME_PROPERTY);
         capabilities.setCapability(PLATFORM_VERSION, PLATFORM_VERSION_PROPERTY);
     }
 
-    public MobileDevice withCapabilities(String mobileType, String property) {
-        this.capabilities.setCapability(mobileType, property);
+    public MobileDevice launchApp(String appType, String appProperty) {
+        this.capabilities.setCapability(appType, appProperty);
         return this;
     }
 

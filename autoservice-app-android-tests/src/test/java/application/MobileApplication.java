@@ -1,4 +1,4 @@
-package applications;
+package application;
 
 import device.MobileDevice;
 import io.appium.java_client.android.AndroidDriver;
@@ -10,7 +10,7 @@ public class MobileApplication {
 
     protected MobileDevice device;
 
-    public MobileApplication(String devicePropertiesFile) {
+    public void launchDevice(String devicePropertiesFile) {
         device = new MobileDevice(devicePropertiesFile);
     }
 

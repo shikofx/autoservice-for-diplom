@@ -87,10 +87,6 @@ subprojects {
 
     }
 
-    subprojects {":autocervice-app-web"
-        compile project(":autoservice-ws-autoorder")
-    }
-
 //    Allure report
 //    task generateAllureReport(type: Exec) {
 //        commandLine 'cmd', '/c', 'allure', 'generate', '-c', "$projectDir/build/allure-results",

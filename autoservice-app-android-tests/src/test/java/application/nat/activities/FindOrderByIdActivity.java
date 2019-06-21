@@ -4,19 +4,27 @@ import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class FindOrderByIdActivity extends ActivityManager {
+public class FindOrderByIdActivity extends ApplicationActivity {
 
-    private AndroidDriver androidDriver;
-    private WebDriverWait wait;
-    private final By idField = By.id(APP_PACKAGE_NAME + ":id/txt_display_info");
+    private final By grid = By.id(APP_PACKAGE_NAME + ":id/txt_display_info");
 
     public FindOrderByIdActivity(AndroidDriver androidDriver, WebDriverWait wait) {
         super(androidDriver, wait);
-        this.androidDriver = androidDriver;
-        this.wait = wait;
     }
 
-    public String getHeader() {
-        return getText(idField);
+    public String getOrders() {
+        return getText(grid);
+    }
+
+    @Override
+    public FindOrderByIdActivity closeKeyboard() {
+        androidDriver.navigate().back();
+        return this;
+    }
+
+    @Override
+    public FindOrderByIdActivity back() {
+        androidDriver.navigate().back();
+        return this;
     }
 }

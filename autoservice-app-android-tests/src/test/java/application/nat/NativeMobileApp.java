@@ -10,6 +10,7 @@ import application.nat.activities.FindAllOrdersActivity;
 import application.nat.activities.FindOrderByIdActivity;
 import application.nat.activities.OrdersMenuActivity;
 import application.nat.activities.UpdateOrderActivity;
+import device.IDevice;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -17,9 +18,9 @@ import setup.TestProperties;
 
 import java.io.File;
 
-public class NativeMobileApp extends MobileApplication {
+public class NativeMobileApp extends MobileApplication implements IDevice {
 
-    private AndroidDriver androidDriver;
+    private AndroidDriver driver;
     private WebDriverWait wait;
     private AddOrderActivity addOrderActivity;
     private DeleteOrderActivity deleteOrderActivity;
@@ -28,37 +29,36 @@ public class NativeMobileApp extends MobileApplication {
     private OrdersMenuActivity ordersMenuActivity;
     private UpdateOrderActivity updateOrderActivity;
 
-    private final String NATIVE_APP_PROPERTIES_FILE = "native-app.properties";
     private TestProperties nativeProperties;
-    private final String APPLICATION_PATH_PROPERTY;
+    private String APPLICATION_PATH;
 
-    public NativeMobileApp(String devicePropertiFile) {
-        super(devicePropertiFile);
-        nativeProperties = new TestProperties(NATIVE_APP_PROPERTIES_FILE);
-        APPLICATION_PATH_PROPERTY = nativeProperties.getProperty("applicationPath");
+    public NativeMobileApp(String devicePropertyFile, String appPropertyFile) {
+        super(devicePropertyFile);
+        nativeProperties = new TestProperties(appPropertyFile);
+        APPLICATION_PATH = nativeProperties.getProperty("applicationPath");
     }
 
-    public NativeMobileApp launchApp() {
-        File app = new File(APPLICATION_PATH_PROPERTY);
+    public NativeMobileApp startApp() {
+        File app = new File(APPLICATION_PATH);
         device().launchApp(APP, app.getAbsolutePath());
-        androidDriver = getDriver();
-        wait = new WebDriverWait(androidDriver, 10);
-        addOrderActivity = new AddOrderActivity(androidDriver, wait);
-        deleteOrderActivity = new DeleteOrderActivity(androidDriver, wait);
-        findAllOrdersActivity = new FindAllOrdersActivity(androidDriver, wait);
-        findOrderByIdActivity = new FindOrderByIdActivity(androidDriver, wait);
-        updateOrderActivity = new UpdateOrderActivity(androidDriver, wait);
-        ordersMenuActivity = new OrdersMenuActivity(androidDriver, wait);
+        driver = getDriver();
+        wait = new WebDriverWait(driver, 10);
+        addOrderActivity = new AddOrderActivity(driver, wait);
+        deleteOrderActivity = new DeleteOrderActivity(driver, wait);
+        findAllOrdersActivity = new FindAllOrdersActivity(driver, wait);
+        findOrderByIdActivity = new FindOrderByIdActivity(driver, wait);
+        updateOrderActivity = new UpdateOrderActivity(driver, wait);
+        ordersMenuActivity = new OrdersMenuActivity(driver, wait);
         return this;
     }
 
-    public NativeMobileApp closeApp() {
-        androidDriver.closeApp();
-        ofNullable(androidDriver).ifPresent(RemoteWebDriver::quit);
+    public NativeMobileApp stopApp() {
+        driver.closeApp();
+        ofNullable(driver).ifPresent(RemoteWebDriver::quit);
         return this;
     }
 
-    public AddOrderActivity addOrderActivity() {
+    public AddOrderActivity addActivity() {
         return addOrderActivity;
     }
 
@@ -66,15 +66,15 @@ public class NativeMobileApp extends MobileApplication {
         return deleteOrderActivity;
     }
 
-    public FindAllOrdersActivity findAllOrdersActivity() {
+    public FindAllOrdersActivity findAllActivity() {
         return findAllOrdersActivity;
     }
 
-    public FindOrderByIdActivity findOrderByIdActivity() {
+    public FindOrderByIdActivity findOneActivity() {
         return findOrderByIdActivity;
     }
 
-    public OrdersMenuActivity ordersMenuActivity() {
+    public OrdersMenuActivity ordersMenu() {
         return ordersMenuActivity;
     }
 

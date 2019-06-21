@@ -6,12 +6,12 @@ import io.appium.java_client.android.AndroidDriver;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class MobileApplication {
+public abstract class MobileApplication {
 
     private MobileDevice device;
 
     public MobileApplication(String devicePropertiesFile) {
-        this.device = new MobileDevice(devicePropertiesFile);
+        this.device = MobileDevice.launchDevice(devicePropertiesFile);
     }
 
     public AndroidDriver getDriver() {

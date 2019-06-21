@@ -1,46 +1,36 @@
-//package tests.web;
-//
-//import static java.util.Optional.ofNullable;
-//
-//import application.web.WebMobileApp;
-//import io.appium.java_client.android.AndroidDriver;
-//import org.junit.After;
-//import org.junit.AfterClass;
-//import org.junit.BeforeClass;
-//import org.junit.Test;
-//import org.openqa.selenium.remote.RemoteWebDriver;
-//
-//import java.util.concurrent.TimeUnit;
-//
-//public class WebMobileAppTests {
-//
-//    static AndroidDriver driver;
-//    static WebMobileApp appCapabilities;
-//
-//    @BeforeClass
-//    public static void init() {
-//        appCapabilities = new WebMobileApp("appium-real.properties");
-//        //        appCapabilities = new NativeMobileApp("appium-epam-cloud.properties");
-////        appCapabilities = new WebMobileApp("appium-emulator.properties");             //- I can't ubdate browser on emulator
-//        driver = appCapabilities.getDriver();
-//        driver.manage().timeouts()
-//            .pageLoadTimeout(5, TimeUnit.MINUTES)
-//            .implicitlyWait(90, TimeUnit.SECONDS);
-//    }
-//
-//    @Test
-//    public void simplestWebTest() {
-//        driver.get(appCapabilities.getAppUrl());
-//    }
-//
-//    @After
-//    public void tearDown() {
-//        driver.closeApp();
-//    }
-//
-//    @AfterClass
-//    public static void deinit() {
-//        ofNullable(driver).ifPresent(RemoteWebDriver::quit);
-//    }
-//
-//}
+package tests.web;
+
+import application.web.WebMobileApp;
+import io.appium.java_client.android.AndroidDriver;
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+public class WebMobileAppTests {
+
+    static AndroidDriver driver;
+
+    static WebMobileApp webMobileApp = new WebMobileApp("appium-real.properties", "web-app.properties");
+    //    static NativeMobileApp nativeApp = new NativeMobileApp("appium-epam-cloud.properties", "native-app.properties");
+//    static NativeMobileApp nativeApp = new NativeMobileApp("appium-real.properties", "native-app.properties");
+
+
+    @BeforeClass
+    public static void init() {
+        //        webMobileApp = WebMobileApp.startApp("appium-epam-cloud.properties");
+//        webMobileApp = WebMobileApp.startApp("appium-emulator.properties");             //- I can't ubdate browser on emulator
+        webMobileApp.startApp();
+        webMobileApp.navigate().toOrderPage();
+    }
+
+    @Test
+    public void simplestWebTest() {
+
+    }
+
+    @AfterClass
+    public static void deinit() {
+        webMobileApp.stopApp();
+    }
+
+}

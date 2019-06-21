@@ -4,10 +4,8 @@ import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class OrdersMenuActivity extends ActivityManager {
+public class OrdersMenuActivity extends ApplicationActivity {
 
-    private AndroidDriver androidDriver;
-    private WebDriverWait wait;
     private final By addButton = By.id(APP_PACKAGE_NAME + ":id/bn_add_order");
     private final By findOneButton = By.id(APP_PACKAGE_NAME + ":id/bn_view_order");
     private final By findAllButton = By.id(APP_PACKAGE_NAME + ":id/bn_view_orders");
@@ -16,27 +14,42 @@ public class OrdersMenuActivity extends ActivityManager {
 
     public OrdersMenuActivity(AndroidDriver androidDriver, WebDriverWait wait) {
         super(androidDriver, wait);
-        this.androidDriver = androidDriver;
-        this.wait = wait;
     }
 
-    public void goToAddOrder() {
+    public OrdersMenuActivity toAdd() {
         clickTo(addButton);
+        return this;
     }
 
-    public void goToFindById() {
+    public OrdersMenuActivity toFindOne() {
         clickTo(findOneButton);
+        return this;
     }
 
-    public void goToFindAll() {
+    public OrdersMenuActivity toFindAll() {
         clickTo(findAllButton);
+        return this;
     }
 
-    public void goToUpdate() {
+    public OrdersMenuActivity toUpdate() {
         clickTo(updateButton);
+        return this;
     }
 
-    public void goToDelete() {
+    public OrdersMenuActivity toDelete() {
         clickTo(deleteButton);
+        return this;
+    }
+
+    @Override
+    public OrdersMenuActivity closeKeyboard() {
+        androidDriver.navigate().back();
+        return this;
+    }
+
+    @Override
+    public OrdersMenuActivity back() {
+        androidDriver.navigate().back();
+        return this;
     }
 }

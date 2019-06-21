@@ -89,42 +89,39 @@ subprojects {
     }
 
 //    Allure report
-    task generateAllureReport(type: Exec) {
-        commandLine 'cmd', '/c', 'allure', 'generate', '-c', "$projectDir/build/allure-results",
-                    '-o', "$projectDir/build/reports/allure"
-    }
+   // task generateAllureReport(type: Exec) {
+    //    commandLine 'cmd', '/c', 'allure', 'generate', '-c', "$projectDir/build/allure-results",
+    //                '-o', "$projectDir/build/reports/allure"
+   // }
 
-    allure {
-        autoconfigure = true
-        aspectjweaver = true
-        version = "${allure_Version}"
-    }
+   // allure {
+   //     autoconfigure = true
+    //    aspectjweaver = true
+    //    version = "${allure_Version}"
+   // }
 
 //    Jacoco coverage
-    jacoco {
-        version = "${jacoco_Version}"
-    }
+   // jacoco {
+  //      version = "${jacoco_Version}"
+  //  }
 
-    jacocoTestReport {
-        reports {
-            html.enabled = true
-            xml.enabled = true
-            csv.enabled = true
-        }
-    }
+   // jacocoTestReport {
+   //     reports {
+   //         html.enabled = true
+   //         xml.enabled = true
+   //         csv.enabled = true
+   //     }
+   // }
 
 
 //    reportportal
-    test {
+ //   test {
        // testLogging.showStandardStreams = true
-        finalizedBy(generateAllureReport)
-        finalizedBy(jacocoTestReport)
-    }
+  //      finalizedBy(generateAllureReport)
+  //      finalizedBy(jacocoTestReport)
+  //  }
 }
 
-subprojects {
 
-
-}
 
 

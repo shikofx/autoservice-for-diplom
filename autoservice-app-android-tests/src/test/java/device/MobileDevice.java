@@ -48,4 +48,5 @@ public class MobileDevice {
     public DesiredCapabilities getCapabilities() {
         return capabilities;
     }
+
 }

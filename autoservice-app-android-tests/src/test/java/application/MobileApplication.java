@@ -8,10 +8,10 @@ import java.net.URL;
 
 public class MobileApplication {
 
-    protected MobileDevice device;
+    private MobileDevice device;
 
-    public void launchDevice(String devicePropertiesFile) {
-        device = new MobileDevice(devicePropertiesFile);
+    public MobileApplication(String devicePropertiesFile) {
+        this.device = new MobileDevice(devicePropertiesFile);
     }
 
     public AndroidDriver getDriver() {
@@ -22,4 +22,7 @@ public class MobileApplication {
         }
     }
 
+    public MobileDevice device() {
+        return device;
+    }
 }

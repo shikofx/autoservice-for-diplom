@@ -1,130 +1,84 @@
 package tests.nat;
 
-import static java.util.Optional.ofNullable;
-
 import application.nat.NativeMobileApp;
-import io.appium.java_client.android.AndroidDriver;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class NativeBaseTests {
 
 
-    static AndroidDriver androidDriver;
-    static NativeMobileApp appCapabilities;
-    static WebDriverWait wait;
-    String appPackageName = "com.epam.autoserviceappapi";
+    static NativeMobileApp nativeApp = new NativeMobileApp("appium-emulator.properties");
 
     @BeforeClass
     public static void init() {
-        appCapabilities = new NativeMobileApp("appium-emulator.properties");
-        androidDriver = appCapabilities.getDriver();
-        wait = new WebDriverWait(androidDriver, 5);
+        nativeApp.launchApp();
     }
 
     @Test
     public void addOrderTest() {
-        WebElement addOrderButton = androidDriver.findElement(By.id(appPackageName + ":id/bn_add_order"));
-        addOrderButton.click();
+        nativeApp.ordersMenuActivity().goToAddOrder();
         SoftAssertions assertions = new SoftAssertions();
-        wait.until(d -> d.findElement(By.id(appPackageName + ":id/textView")));
-        WebElement addHeaderElement = androidDriver.findElement(By.id(appPackageName + ":id/textView"));
-        assertions.assertThat(addHeaderElement.getText()).contains("Add New Order");
-        WebElement orderDateFieldElement = androidDriver.findElement(By.id(appPackageName + ":id/txt_order_date"));
-        orderDateFieldElement.click();
-        assertions.assertThat(androidDriver.isKeyboardShown()).isTrue();
-        orderDateFieldElement.sendKeys("28.02.2007");
-        WebElement orderOwnerNameElement = androidDriver.findElement(By.id(appPackageName + ":id/txt_owner_name"));
-        orderOwnerNameElement.click();
-        assertions.assertThat(androidDriver.isKeyboardShown()).isTrue();
-        orderOwnerNameElement.sendKeys("Test Owner");
-        WebElement orderSaveButtonElement = androidDriver.findElement(By.id(appPackageName + ":id/bn_save"));
-        orderSaveButtonElement.click();
-        androidDriver.navigate().back();
-        androidDriver.navigate().back();
+        assertions.assertThat(nativeApp.addOrderActivity().getHeaderText()).contains("Add New Order");
+        nativeApp.addOrderActivity().fillDate("28.02.2007");
+        assertions.assertThat(nativeApp.addOrderActivity().isKeyboardShown()).isTrue();
+        nativeApp.addOrderActivity().fillOwnerName("Test Owner");
+        assertions.assertThat(nativeApp.addOrderActivity().isKeyboardShown()).isTrue();
+        nativeApp.addOrderActivity().closeKeyboard();
+        nativeApp.addOrderActivity().add().back();
         assertions.assertAll();
     }
 
     @Test
     public void findOrderByIdTest() {
-        WebElement addOrderButton = androidDriver.findElement(By.id(appPackageName + ":id/bn_view_order"));
-        addOrderButton.click();
+        nativeApp.ordersMenuActivity().goToFindById();
         SoftAssertions assertions = new SoftAssertions();
-        wait.until(d -> d.findElement(By.id(appPackageName + ":id/txt_display_info")));
-        WebElement foundElement = androidDriver.findElement(By.id(appPackageName + ":id/txt_display_info"));
-        assertions.assertThat(foundElement.getText()).contains("Id: 1");
-        androidDriver.navigate().back();
+        assertions.assertThat(nativeApp.findOrderByIdActivity().getHeader()).contains("Id: 1");
+        nativeApp.findAllOrdersActivity().back();
         assertions.assertAll();
     }
 
     @Test
     public void findAllOrdersTest() {
-        WebElement addOrderButton = androidDriver.findElement(By.id(appPackageName + ":id/bn_view_orders"));
-        addOrderButton.click();
+        nativeApp.ordersMenuActivity().goToFindAll();
         SoftAssertions assertions = new SoftAssertions();
-        wait.until(d -> d.findElement(By.id(appPackageName + ":id/txt_display_info")));
-        WebElement foundsElement = androidDriver.findElement(By.id(appPackageName + ":id/txt_display_info"));
-        assertions.assertThat(foundsElement.getText()).contains("Id: 1");
-        androidDriver.navigate().back();
+        String text = nativeApp.findAllOrdersActivity().getOrders();
+        assertions.assertThat(text).contains("Id: 1");
+        nativeApp.findAllOrdersActivity().back();
         assertions.assertAll();
     }
 
     @Test
     public void updateOrderTest() {
-        WebElement updateOrderButton = androidDriver.findElement(By.id(appPackageName + ":id/bn_update_order"));
-        updateOrderButton.click();
+        nativeApp.ordersMenuActivity().goToUpdate();
         SoftAssertions assertions = new SoftAssertions();
-        wait.until(d -> d.findElement(By.id(appPackageName + ":id/textView_update")));
-        WebElement addHeaderElement = androidDriver.findElement(By.id(appPackageName + ":id/textView_update"));
-        assertions.assertThat(addHeaderElement.getText()).contains("Update Order");
-        WebElement orderIdFieldElement = androidDriver.findElement(By.id(appPackageName + ":id/txt_update_order_id"));
-        orderIdFieldElement.click();
-        assertions.assertThat(androidDriver.isKeyboardShown()).isTrue();
-        orderIdFieldElement.sendKeys("1");
-        WebElement
-            orderDateFieldElement =
-            androidDriver.findElement(By.id(appPackageName + ":id/txt_update_order_date"));
-        orderDateFieldElement.click();
-        assertions.assertThat(androidDriver.isKeyboardShown()).isTrue();
-        orderDateFieldElement.sendKeys("28.02.2007");
-        WebElement
-            orderOwnerNameElement =
-            androidDriver.findElement(By.id(appPackageName + ":id/txt_update_owner_name"));
-        orderOwnerNameElement.click();
-        assertions.assertThat(androidDriver.isKeyboardShown()).isTrue();
-        orderOwnerNameElement.sendKeys("Test Owner");
-        WebElement orderSaveButtonElement = androidDriver.findElement(By.id(appPackageName + ":id/bn_update_save"));
-        orderSaveButtonElement.click();
-        androidDriver.navigate().back();
-        androidDriver.navigate().back();
+        assertions.assertThat(nativeApp.updateOrderActivity().getHeader()).contains("Update Order");
+        nativeApp.updateOrderActivity().fillId("1");
+        assertions.assertThat(nativeApp.updateOrderActivity().isKeyboardShown()).isTrue();
+        nativeApp.updateOrderActivity().fillDate("28.02.2007");
+        assertions.assertThat(nativeApp.updateOrderActivity().isKeyboardShown()).isTrue();
+        nativeApp.updateOrderActivity().fillOwnerName("Test Owner");
+        assertions.assertThat(nativeApp.updateOrderActivity().isKeyboardShown()).isTrue();
+        nativeApp.updateOrderActivity().closeKeyboard();
+        nativeApp.updateOrderActivity().update().back();
+        nativeApp.updateOrderActivity().back();
         assertions.assertAll();
     }
 
     @Test
     public void deleteOrderTest() {
-        WebElement deleteOrderButton = androidDriver.findElement(By.id(appPackageName + ":id/bn_delete_order"));
-        deleteOrderButton.click();
+        nativeApp.ordersMenuActivity().goToDelete();
         SoftAssertions assertions = new SoftAssertions();
-        wait.until(d -> d.findElement(By.id(appPackageName + ":id/textView_delete")));
-        WebElement addHeaderElement = androidDriver.findElement(By.id(appPackageName + ":id/textView_delete"));
-        assertions.assertThat(addHeaderElement.getText()).contains("Delete Order");
-        WebElement orderIdFieldElement = androidDriver.findElement(By.id(appPackageName + ":id/txt_delete_order_id"));
-        orderIdFieldElement.click();
-        assertions.assertThat(androidDriver.isKeyboardShown()).isTrue();
-        orderIdFieldElement.sendKeys("1");
-        WebElement orderSaveButtonElement = androidDriver.findElement(By.id(appPackageName + ":id/delete_order_bn"));
-        orderSaveButtonElement.click();
-        androidDriver.navigate().back();
-        androidDriver.navigate().back();
+        assertions.assertThat(nativeApp.deleteOrderActivity().getHeader()).contains("Delete Order");
+        nativeApp.deleteOrderActivity().fillId("1");
+        assertions.assertThat(nativeApp.deleteOrderActivity().isKeyboardShown()).isTrue();
+        nativeApp.deleteOrderActivity().closeKeyboard();
+        nativeApp.deleteOrderActivity().delete().back();
         assertions.assertAll();
     }
+
 
     @After
     public void tearDown() {
@@ -132,9 +86,6 @@ public class NativeBaseTests {
 
     @AfterClass
     public static void deinit() {
-        androidDriver.closeApp();
-        ofNullable(androidDriver).ifPresent(RemoteWebDriver::quit);
+        nativeApp.closeApp();
     }
-
-
 }

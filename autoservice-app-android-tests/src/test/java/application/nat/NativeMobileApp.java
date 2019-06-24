@@ -3,6 +3,7 @@ package application.nat;
 import static io.appium.java_client.remote.MobileCapabilityType.APP;
 import static java.util.Optional.ofNullable;
 
+import application.IMobileApp;
 import application.MobileApplication;
 import application.nat.activities.AddOrderActivity;
 import application.nat.activities.DeleteOrderActivity;
@@ -10,7 +11,6 @@ import application.nat.activities.FindAllOrdersActivity;
 import application.nat.activities.FindOrderByIdActivity;
 import application.nat.activities.OrdersMenuActivity;
 import application.nat.activities.UpdateOrderActivity;
-import device.IDevice;
 import device.MobileDevice;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -19,8 +19,9 @@ import setup.TestProperties;
 
 import java.io.File;
 
-public class NativeMobileApp extends MobileApplication implements IDevice {
+public class NativeMobileApp extends MobileApplication implements IMobileApp {
 
+    private static final String NATIVE_APP_PROPERTIES_FILE = "native-app.properties";
     private AndroidDriver driver;
     private WebDriverWait wait;
     private AddOrderActivity addOrderActivity;
@@ -33,9 +34,9 @@ public class NativeMobileApp extends MobileApplication implements IDevice {
     private TestProperties nativeProperties;
     private String APPLICATION_PATH;
 
-    public NativeMobileApp(String devicePropertyFile, String appPropertyFile) {
-        MobileDevice.launch(devicePropertyFile);
-        nativeProperties = new TestProperties(appPropertyFile);
+    public NativeMobileApp() {
+        MobileDevice.launch();
+        nativeProperties = new TestProperties(NATIVE_APP_PROPERTIES_FILE);
         APPLICATION_PATH = nativeProperties.getProperty("applicationPath");
     }
 

@@ -10,6 +10,7 @@ import setup.TestProperties;
 
 public final class MobileDevice {
 
+    private static final String DEVICE_PROPERTY_FILE = "device.properties";
     private static MobileDevice deviceInstance;
 
     protected static DesiredCapabilities capabilities;
@@ -33,9 +34,9 @@ public final class MobileDevice {
         capabilities.setCapability(PLATFORM_VERSION, PLATFORM_VERSION_PROPERTY);
     }
 
-    public static MobileDevice launch(String devicePropertiesFile) {
+    public static MobileDevice launch() {
         if (deviceInstance == null) {
-            deviceInstance = new MobileDevice(devicePropertiesFile);
+            deviceInstance = new MobileDevice(DEVICE_PROPERTY_FILE);
         }
         return deviceInstance;
     }

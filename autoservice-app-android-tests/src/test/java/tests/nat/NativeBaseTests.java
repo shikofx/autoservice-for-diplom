@@ -8,14 +8,10 @@ import org.junit.Test;
 
 public class NativeBaseTests {
 
-    static NativeMobileApp nativeApp = new NativeMobileApp("appium-emulator.properties", "native-app.properties");
-//    static NativeMobileApp nativeApp = new NativeMobileApp("appium-epam-cloud.properties", "native-app.properties");
-//    static NativeMobileApp nativeApp = new NativeMobileApp("appium-real.properties", "native-app.properties");
+    static NativeMobileApp nativeApp = new NativeMobileApp();
 
     @BeforeClass
     public static void init() {
-        //        nativeApp = NativeMobileApp.startApp(");
-//        nativeApp = NativeMobileApp.startApp("appium-emulator.properties");             //- I can't ubdate browser on emulator
 
         nativeApp.startApp();
     }

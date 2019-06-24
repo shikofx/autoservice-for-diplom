@@ -8,21 +8,11 @@ import java.net.URL;
 
 public abstract class MobileApplication {
 
-    private MobileDevice device;
-
-    public MobileApplication(String devicePropertiesFile) {
-        this.device = MobileDevice.launchDevice(devicePropertiesFile);
-    }
-
-    public AndroidDriver getDriver() {
+    public AndroidDriver getAppDriver() {
         try {
-            return new AndroidDriver(new URL(device.getAppiumServer()), device.getCapabilities());
+            return new AndroidDriver(new URL(MobileDevice.getAppiumServer()), MobileDevice.getCapabilities());
         } catch (MalformedURLException e) {
             return null;
         }
-    }
-
-    public MobileDevice device() {
-        return device;
     }
 }

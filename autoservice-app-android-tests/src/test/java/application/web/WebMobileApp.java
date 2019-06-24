@@ -6,6 +6,7 @@ import static org.openqa.selenium.remote.CapabilityType.BROWSER_NAME;
 import application.MobileApplication;
 import application.web.pages.NavigationHelper;
 import device.IDevice;
+import device.MobileDevice;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -24,15 +25,15 @@ public class WebMobileApp extends MobileApplication implements IDevice {
     private NavigationHelper navigator;
 
     public WebMobileApp(String devicePropertyFile, String propertiesFile) {
-        super(devicePropertyFile);
+        MobileDevice.launch(devicePropertyFile);
         webAppProperties = new TestProperties(propertiesFile);
         ORDER_URL_PROPERTY = webAppProperties.getProperty("webAppUrl");
         BROWSER_NAME_PROPERTY = webAppProperties.getProperty("browserName");
     }
 
     public WebMobileApp startApp() {
-        device().launchApp(BROWSER_NAME, BROWSER_NAME_PROPERTY);
-        driver = getDriver();
+        MobileDevice.launchApp(BROWSER_NAME, BROWSER_NAME_PROPERTY);
+        driver = getAppDriver();
         driver.manage().timeouts()
             .pageLoadTimeout(5, TimeUnit.MINUTES)
             .implicitlyWait(90, TimeUnit.SECONDS);

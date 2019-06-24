@@ -11,6 +11,7 @@ import application.nat.activities.FindOrderByIdActivity;
 import application.nat.activities.OrdersMenuActivity;
 import application.nat.activities.UpdateOrderActivity;
 import device.IDevice;
+import device.MobileDevice;
 import io.appium.java_client.android.AndroidDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -33,15 +34,15 @@ public class NativeMobileApp extends MobileApplication implements IDevice {
     private String APPLICATION_PATH;
 
     public NativeMobileApp(String devicePropertyFile, String appPropertyFile) {
-        super(devicePropertyFile);
+        MobileDevice.launch(devicePropertyFile);
         nativeProperties = new TestProperties(appPropertyFile);
         APPLICATION_PATH = nativeProperties.getProperty("applicationPath");
     }
 
     public NativeMobileApp startApp() {
         File app = new File(APPLICATION_PATH);
-        device().launchApp(APP, app.getAbsolutePath());
-        driver = getDriver();
+        MobileDevice.launchApp(APP, app.getAbsolutePath());
+        driver = getAppDriver();
         wait = new WebDriverWait(driver, 10);
         addOrderActivity = new AddOrderActivity(driver, wait);
         deleteOrderActivity = new DeleteOrderActivity(driver, wait);

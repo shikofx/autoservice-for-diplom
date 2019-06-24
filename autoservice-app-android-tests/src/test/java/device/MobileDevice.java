@@ -12,10 +12,10 @@ public final class MobileDevice {
 
     private static MobileDevice deviceInstance;
 
-    protected DesiredCapabilities capabilities;
+    protected static DesiredCapabilities capabilities;
     private final String PLATFORM_VERSION_PROPERTY;
     private final String PLATFORM_NAME_PROPERTY;
-    final String APPIUM_SERVER_PROPERTY;
+    private static String APPIUM_SERVER_PROPERTY;
     private final String DEVICE_NAME_PROPERTY;
     private final String DEVICE_UDID_PROPERTY;
 
@@ -33,23 +33,22 @@ public final class MobileDevice {
         capabilities.setCapability(PLATFORM_VERSION, PLATFORM_VERSION_PROPERTY);
     }
 
-    public static MobileDevice launchDevice(String devicePropertiesFile) {
+    public static MobileDevice launch(String devicePropertiesFile) {
         if (deviceInstance == null) {
             deviceInstance = new MobileDevice(devicePropertiesFile);
         }
         return deviceInstance;
     }
 
-    public MobileDevice launchApp(String appType, String appProperty) {
-        this.capabilities.setCapability(appType, appProperty);
-        return this;
+    public static void launchApp(String appType, String appProperty) {
+        capabilities.setCapability(appType, appProperty);
     }
 
-    public String getAppiumServer() {
+    public static String getAppiumServer() {
         return APPIUM_SERVER_PROPERTY;
     }
 
-    public DesiredCapabilities getCapabilities() {
+    public static DesiredCapabilities getCapabilities() {
         return capabilities;
     }
 

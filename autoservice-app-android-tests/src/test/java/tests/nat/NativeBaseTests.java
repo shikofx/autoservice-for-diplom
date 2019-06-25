@@ -31,7 +31,7 @@ public class NativeBaseTests {
     public void findOrderByIdTest() {
         nativeApp.ordersMenu().toFindOne();
         SoftAssertions assertions = new SoftAssertions();
-        assertions.assertThat(nativeApp.findOneActivity().getOrders()).contains("Id: 1");
+        assertions.assertThat(nativeApp.findOneActivity().getOrders()).contains("Id:");
         nativeApp.findOneActivity().back();
         assertions.assertAll();
     }

@@ -3,11 +3,10 @@
 
 # Package Files #
 *.jar
-*.war
-
 # User-specific stuff
 out/
 build/
+/build/
 /autoservice-app-console/test_base/
 /.idea/
 /.gradle/

@@ -25,7 +25,7 @@ public class AutoOrderServiceTest extends AbstractTest {
     @Test
     public void testFindOne() {
 
-        Long id = new Long(1);
+        Long id = 1L;
         AutoOrder entity = service.findOne(id);
         Assert.assertNotNull("failure - expected not null", entity);
         Assert.assertEquals("failure - expected id attribute match", id, entity.getOrderId());
@@ -53,7 +53,7 @@ public class AutoOrderServiceTest extends AbstractTest {
     @Test
     public void testUpdate() {
 
-        Long id = new Long(1);
+        Long id = 1L;
         AutoOrder entity = service.findOne(id);
         Assert.assertNotNull("failure - expected not null", entity);
         String updatedOwnerName = entity.getOwnerName() + " test";
@@ -70,7 +70,7 @@ public class AutoOrderServiceTest extends AbstractTest {
     @Test
     public void testDelete() {
 
-        Long id = new Long(1);
+        Long id = 1L;
         AutoOrder entity = service.findOne(id);
         Assert.assertNotNull("failure - expected not null", entity);
         service.delete(id);

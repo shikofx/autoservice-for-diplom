@@ -1,15 +1,16 @@
 package com.epam.data;
 
+import com.epam.tests.TestBase;
 import org.junit.runners.Parameterized.Parameters;
 
-public class SimpleDataProvider {
+class SimpleDataProvider {
 
     @Parameters
     public static Object[][] ordersWithEmptyFields() {
         return new Object[][]{
             {"", ""},
-            {"", "Test Owner"},
-            {"22-12-2019", ""}
+            {"", TestBase.TEST_OWNER_STRING},
+            {TestBase.TEST_DATE_STRING, ""}
         };
     }
 
@@ -17,18 +18,18 @@ public class SimpleDataProvider {
     public static Object[][] ordersWithNullFields() {
         return new Object[][]{
             {null, null},
-            {null, "Test Owner"},
-            {"22-12-2019", null}
+            {null, TestBase.TEST_OWNER_STRING},
+            {TestBase.TEST_DATE_STRING, null}
         };
     }
 
     @Parameters
     public static Object[][] ordersForModify() {
         return new Object[][]{
-            {"22-12-2019", "Test Albert"},
-            {"22-12-2019", "Test Peter"},
-            {"22-12-2019", "Test +-*/!@#$%^^&*()"},
-            {"22-12-2019", "Test 1aA0654679"}
+            {TestBase.TEST_DATE_STRING, "Test Albert"},
+            {TestBase.TEST_DATE_STRING, "Test Peter"},
+            {TestBase.TEST_DATE_STRING, "Test +-*/!@#$%^^&*()"},
+            {TestBase.TEST_DATE_STRING, "Test 1aA0654679"}
         };
     }
 }

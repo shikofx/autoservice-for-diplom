@@ -58,7 +58,7 @@ public class AutoOrderRepository implements IAutoserviceRepository<AutoOrder> {
 
     @Override
     public List<AutoOrder> findAll() throws SQLException {
-        List<AutoOrder> orders = new ArrayList<AutoOrder>();
+        List<AutoOrder> orders = new ArrayList<>();
         databaseController.connect();
         Statement sta = databaseController.getConnection().createStatement();
         String query = "SELECT * FROM AUTOORDER";

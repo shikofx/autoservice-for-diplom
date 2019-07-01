@@ -1,32 +1,11 @@
-buildscript {
-    repositories {
-        maven {
-            url "https://plugins.gradle.org/m2/"
-        }
-    }
-    dependencies {
-        classpath "io.qameta.allure:allure-gradle:2.7.0"
-    }
-}
-
-apply plugin: 'io.qameta.allure'
-apply plugin: 'jacoco'
+group "$applicationGroup"
+version "$applicationVersion"
 
 compileTestJava {
-    sourceCompatibility = 1.8
-    targetCompatibility = 1.8
     options.encoding = 'UTF-8'
 }
 
 defaultTasks 'clean', 'build'
-
-repositories {
-    mavenCentral()
-    mavenLocal()
-    jcenter()
-    maven { url 'https://jitpack.io' }
-    maven { url "http://dl.bintray.com/epam/reportportal" }
-}
 
 dependencies {
     agent "org.aspectj:aspectjweaver:1.9.2"
@@ -50,11 +29,12 @@ dependencies {
                 name: 'derbytools',
                 version: '10.14.2.0'
 }
-ext {
-    junitFoundation = configurations.compile.resolvedConfiguration.resolvedArtifacts.find { it.name == 'junit-foundation' }
-}
 
-test.doFirst {
-    jvmArgs "-javaagent:${configurations.agent.singleFile}"
-    jvmArgs "-javaagent:${junitFoundation.file}"
-}
+//ext {
+//    junitFoundation = configurations.compile.resolvedConfiguration.resolvedArtifacts.
+//            find { it.name == 'junit-foundation' }
+//}
+//
+//test.doFirst {
+//    jvmArgs "-javaagent:${junitFoundation.file}"
+//}

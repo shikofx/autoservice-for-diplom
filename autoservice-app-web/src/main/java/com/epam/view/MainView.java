@@ -19,33 +19,30 @@ import org.springframework.util.StringUtils;
 public class MainView extends VerticalLayout {
 
     private final AutoOrderClient autoOrderClient = new AutoOrderClient();
-    private final AutoOrder autoOrder = new AutoOrder();
-    Grid<AutoOrder> gridAutoOrder = new Grid<>(AutoOrder.class);
+    private final Grid<AutoOrder> gridAutoOrder = new Grid<>(AutoOrder.class);
     private final TextField filter = new TextField("", "Type id to filter");
-    private final Button searchBttn = new Button("Search", VaadinIcon.SEARCH.create());
-    private final Button addNewBttn = new Button("Add new", VaadinIcon.PLUS.create());
-    private final HorizontalLayout toolbar = new HorizontalLayout();
 
-    private AutoOrderEditor editor = new AutoOrderEditor(autoOrderClient);
+    private final AutoOrderEditor editor = new AutoOrderEditor(autoOrderClient);
 
     @Autowired
     public MainView() {
-        gridAutoOrder.setHeight("300px");
+//        gridAutoOrder.setHeight("300px");
         gridAutoOrder.setColumns("orderId", "orderDate", "ownerName");
-        gridAutoOrder.getColumnByKey("orderId").setWidth("120px").setFlexGrow(0);
+//        gridAutoOrder.getColumnByKey("orderId").setWidth("120px").setFlexGrow(0);
 
         filter.focus();
         filter.setValueChangeMode(ValueChangeMode.EAGER);
+        Button searchBttn = new Button("Search", VaadinIcon.SEARCH.create());
         searchBttn.addClickListener(e -> showAutoOrders(filter.getValue()));
         filter.addKeyPressListener(Key.ENTER, e -> showAutoOrders(filter.getValue()));
 
+        Button addNewBttn = new Button("Add new", VaadinIcon.PLUS.create());
+        HorizontalLayout toolbar = new HorizontalLayout();
         toolbar.add(filter, searchBttn, addNewBttn);
 
         this.add(toolbar, editor, gridAutoOrder);
 
-        gridAutoOrder.asSingleSelect().addValueChangeListener(e -> {
-            editor.editOrder(e.getValue());
-        });
+        gridAutoOrder.asSingleSelect().addValueChangeListener(e -> editor.editOrder(e.getValue()));
 
         editor.setChangeHandler(() -> editor.editOrder(new AutoOrder()));
         addNewBttn.addClickListener(e -> editor.editOrder(new AutoOrder()));
@@ -54,11 +51,9 @@ public class MainView extends VerticalLayout {
             showAutoOrders(filter.getValue());
         });
         showAutoOrders(null);
-//        autoOrder = new AutoOrder();
     }
 
     private void showAutoOrders(String id) {
-
         if (id == null || StringUtils.isEmpty(id)) {
             gridAutoOrder.setItems(autoOrderClient.findAll());
         } else {

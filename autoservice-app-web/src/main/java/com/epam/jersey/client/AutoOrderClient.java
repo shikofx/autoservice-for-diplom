@@ -6,11 +6,17 @@ import static com.epam.jersey.config.AutoOrderRestConfig.ORDER_ID_PATH;
 import static com.epam.jersey.config.AutoOrderRestConfig.ORDER_ID_TEMPLATE;
 import static javax.ws.rs.client.Entity.json;
 import static javax.ws.rs.core.MediaType.APPLICATION_JSON;
+import static rp.org.apache.http.HttpStatus.SC_CREATED;
+import static rp.org.apache.http.HttpStatus.SC_OK;
 
 import com.epam.endpoints.AutoOrder;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.client.ClientProperties;
+import rp.org.apache.http.HttpStatus;
 
+import java.util.Arrays;
 import java.util.List;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
@@ -21,50 +27,68 @@ import javax.ws.rs.core.Response;
 
 public class AutoOrderClient {
 
-    ClientConfig config = new ClientConfig();
-
+    public static final String LOG_CLOSE_CLIENT_STRING = "<<< Close client!";
+    private final ClientConfig config = new ClientConfig();
+    private final Logger logger = LogManager.getLogger(AutoOrderClient.class);
     private Client client = ClientBuilder.newClient();
 
-    public void createNew(AutoOrder autoOrder) {
+    public AutoOrder createNew(AutoOrder newOrder) {
+        AutoOrder autoOrder = null;
+        Response response;
         try {
             client = ClientBuilder.newClient();
+            logger.info(">>> Create new auto order with: " + newOrder.toString());
             WebTarget add = client.target(AUTOORDER_SERVICE_PATH).path(CREATE_NEW_PATH);
-            Response response = add.request(APPLICATION_JSON).post(json(autoOrder));
-//            System.out.println("Response Http Status: " + response.getStatus());
-//            System.out.println(response.getLocation());
+            response = add.request(APPLICATION_JSON).post(json(newOrder));
+            logger.debug(">>> >>> Response Http Status: " + response.getStatus());
+            logger.info(response.getLocation());
+            if (response.getStatus() == SC_CREATED) {
+                logger.info("Order added successfully.");
+                autoOrder = response.readEntity(AutoOrder.class);
+            }
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error(">>> >>> " + Arrays.toString(e.getStackTrace()));
         } finally {
             if (client != null) {
+                logger.debug(LOG_CLOSE_CLIENT_STRING);
                 client.close();
             }
         }
+
+        return autoOrder;
+
     }
 
-    public void updateById(String id, AutoOrder withOrder) {
+    public AutoOrder modify(AutoOrder order, AutoOrder withOrder) {
         AutoOrder autoOrder = null;
+        Response response;
         try {
             client = ClientBuilder.newClient();
+            logger.info(
+                ">>> Modify new auto order by id: " + order.getOrderId() + " with order: " + withOrder.toString());
             WebTarget autoOrderById = client
                 .target(AUTOORDER_SERVICE_PATH)
                 .path(ORDER_ID_PATH)
-                .resolveTemplate(ORDER_ID_TEMPLATE, id);
-            Response response = autoOrderById
+                .resolveTemplate(ORDER_ID_TEMPLATE, order.getOrderId());
+            response = autoOrderById
                 .request(APPLICATION_JSON)
                 .put(Entity.entity(withOrder, APPLICATION_JSON));
-//            System.out.println("Response Http Status: " + response.getStatus());
-            autoOrder = response.readEntity(AutoOrder.class);
-//            System.out.println(
-//                autoOrder.getOrderId() + ", " +
-//                autoOrder.getOrderDate() + ", " +
-//                autoOrder.getOwnerName());
+            logger.debug(">>> >>> Response Http Status: " + response.getStatus());
+            if (response.getStatus() == SC_OK) {
+                logger.info("Order modified successfully.");
+                autoOrder = response.readEntity(AutoOrder.class);
+                logger.info(">>> >>> Result is: " + autoOrder.toString());
+            }
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error(">>> " + Arrays.toString(e.getStackTrace()));
         } finally {
             if (client != null) {
+                logger.debug(LOG_CLOSE_CLIENT_STRING);
                 client.close();
             }
         }
+        return autoOrder;
+
     }
 
     public List<AutoOrder> findAll() {
@@ -72,47 +96,47 @@ public class AutoOrderClient {
         try {
             client = ClientBuilder.newClient();
             WebTarget target = client.target(AUTOORDER_SERVICE_PATH);
+            logger.info(">>> Find all orders.");
             autoOrders = target
                 .request(APPLICATION_JSON)
                 .get(new GenericType<List<AutoOrder>>() {
                 });
-//            autoOrders.stream().forEach(
-//                autoOrder -> System.out.println(autoOrder.getOrderId() + ", " +
-//                                                autoOrder.getOrderDate() + ", " +
-//                                                autoOrder.getOwnerName()));
-            return autoOrders;
         } catch (Exception e) {
-            e.printStackTrace();
-            return autoOrders;
+            logger.error(">>> " + Arrays.toString(e.getStackTrace()));
+
         } finally {
             if (client != null) {
+                logger.debug(LOG_CLOSE_CLIENT_STRING);
                 client.close();
             }
         }
+        return autoOrders;
     }
 
     public AutoOrder findById(String id) {
         AutoOrder autoOrder = null;
         try {
             client = ClientBuilder.newClient();
+            logger.info(">>> Find order by id: " + id);
             WebTarget autoOrderById = client.target(
                 AUTOORDER_SERVICE_PATH).path(ORDER_ID_PATH).resolveTemplate(ORDER_ID_TEMPLATE, id);
             autoOrder = autoOrderById.request(APPLICATION_JSON).get(AutoOrder.class);
-//            System.out.println(autoOrder.getOrderId() + ", " +
-//                               autoOrder.getOrderDate() + ", " +
-//                               autoOrder.getOwnerName());
+            logger.info(">>> >>> Result is: " + autoOrder.toString());
+            logger.info("Order found successfully.");
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error(e.getStackTrace());
             return autoOrder;
         } finally {
             if (client != null) {
+                logger.debug(LOG_CLOSE_CLIENT_STRING);
                 client.close();
             }
-            return autoOrder;
         }
+        return autoOrder;
     }
 
-    public void delete(AutoOrder order) {
+    public boolean delete(AutoOrder order) {
+        Response response = null;
         try {
             config.property(ClientProperties.SUPPRESS_HTTP_COMPLIANCE_VALIDATION, true);
             client = ClientBuilder.newClient(config);
@@ -120,19 +144,23 @@ public class AutoOrderClient {
                 .target(AUTOORDER_SERVICE_PATH)
                 .path(ORDER_ID_PATH)
                 .resolveTemplate(ORDER_ID_TEMPLATE, order.getOrderId());
-            deleteById.request(APPLICATION_JSON)
+            response = deleteById.request(APPLICATION_JSON)
                 .build("DELETE", Entity.entity(order, APPLICATION_JSON))
                 .invoke();
-//            System.out.println("Response Http Status: " + response.getStatus());
-//            if (response.getStatus() == 204) {
-//                System.out.println("Topic deleted successfully.");
-//            }
+            logger.debug("Response Http Status: " + response.getStatus());
         } catch (Exception e) {
-            e.printStackTrace();
+            logger.error(e.getStackTrace());
         } finally {
             if (client != null) {
+                logger.debug(LOG_CLOSE_CLIENT_STRING);
                 client.close();
             }
+        }
+        if (response != null && response.getStatus() == HttpStatus.SC_NO_CONTENT) {
+            logger.info("Order deleted successfully.");
+            return true;
+        } else {
+            return false;
         }
     }
 }

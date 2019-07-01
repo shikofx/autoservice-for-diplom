@@ -13,20 +13,18 @@ import java.util.Date;
 import java.util.List;
 
 
-public class TDDApplication {
-
-    public static String driver = "org.apache.derby.jdbc.EmbeddedDriver";
+class TDDApplication {
 
     public static void main(String... args)
-        throws ClassNotFoundException, SQLException, InstantiationException, IllegalAccessException {
+        throws ClassNotFoundException, SQLException, IllegalAccessException {
         IConsoleManager consoleManager = new ConsoleManager();
-        RequestToFindOrders request = new RequestToFindOrders();
+        new RequestToFindOrders();
         ConsoleDataProvider consoleDataProvider = new ConsoleDataProvider(consoleManager);
-        FilterController filterController = new FilterController(consoleDataProvider);
+        new FilterController(consoleDataProvider);
         DerbyDataBaseController derbyDataBaseController = new DerbyDataBaseController("db_autoservice");
         AutoOrderRepository orderRepository = new AutoOrderRepository(derbyDataBaseController);
         orderRepository.createTable(new AutoOrder());
-        List<AutoOrder> orderList = new ArrayList<AutoOrder>();
+        List<AutoOrder> orderList = new ArrayList<>();
         orderList.add(new AutoOrder().withId(1).withDate(new Date()).withOwnerName("Alex"));
         orderList.add(new AutoOrder().withId(2).withDate(new Date()).withOwnerName("Peter"));
         orderList.add(new AutoOrder().withId(3).withDate(new Date()).withOwnerName("Morphey"));
@@ -34,23 +32,6 @@ public class TDDApplication {
             orderRepository.add(order);
         }
 
-        List<AutoOrder> orderListFromDB = orderRepository.findAll();
-        for (AutoOrder order : orderListFromDB) {
-            System.out.println(order.toString());
-        }
-
-//        try {
-//            filterController.readAndVerifyStartDate();
-//            request.withStartDate(filterController.getStartDate());
-//        } catch (IllegalArgumentException e) {
-//            System.out.println(e.getMessage());
-//        }
-//        try {
-//            filterController.readAndVerifyEndDate();
-//            request.withEndDate(filterController.getEndDate());
-//        } catch (IllegalArgumentException e) {
-//            System.out.println(e.getMessage());
-//        }
 
     }
 }

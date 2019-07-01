@@ -41,7 +41,7 @@ public class AutoOrderControllerTest extends AbstractControllerTest {
     public void testGetAutoOrder() throws Exception {
 
         String uri = "/api/autoOrders/{id}";
-        Long id = new Long(1);
+        Long id = 1L;
         MvcResult result = mvc.perform(MockMvcRequestBuilders.get(uri, id)
                                            .accept(MediaType.APPLICATION_JSON)).andReturn();
         String content = result.getResponse().getContentAsString();
@@ -62,8 +62,7 @@ public class AutoOrderControllerTest extends AbstractControllerTest {
         String content = result.getResponse().getContentAsString();
         int status = result.getResponse().getStatus();
         Assert.assertEquals("failure - expected HTTP status 404", 404, status);
-        Assert.assertTrue("failure - expected HTTP response body to be empty",
-                          content.trim().length() == 0);
+        Assert.assertEquals("failure - expected HTTP response body to be empty", 0, content.trim().length());
 
     }
 
@@ -87,7 +86,7 @@ public class AutoOrderControllerTest extends AbstractControllerTest {
         Assert.assertTrue(
             "failure - expected HTTP response body to have a value",
             content.trim().length() > 0);
-        AutoOrder createdAutoOrder = super.mapFromJson(content, AutoOrder.class);
+        AutoOrder createdAutoOrder = super.mapFromJson(content);
         Assert.assertNotNull("failure - expected autoOrder not null",
                              createdAutoOrder);
         Assert.assertNotNull("failure - expected autoOrder.id not null",
@@ -101,7 +100,7 @@ public class AutoOrderControllerTest extends AbstractControllerTest {
     public void testUpdateAutoOrder() throws Exception {
 
         String uri = "/api/autoOrders/{id}";
-        Long id = new Long(1);
+        Long id = 1L;
         AutoOrder autoOrder = autoOrderService.findOne(id);
         String updatedOwnerName = autoOrder.getOwnerName() + " test";
         autoOrder.setOwnerName(updatedOwnerName);
@@ -117,7 +116,7 @@ public class AutoOrderControllerTest extends AbstractControllerTest {
         Assert.assertTrue(
             "failure - expected HTTP response body to have a value",
             content.trim().length() > 0);
-        AutoOrder updatedAutoOrder = super.mapFromJson(content, AutoOrder.class);
+        AutoOrder updatedAutoOrder = super.mapFromJson(content);
         Assert.assertNotNull("failure - expected autoOrder not null",
                              updatedAutoOrder);
         Assert.assertEquals("failure - expected autoOrder.id unchanged",
@@ -131,12 +130,11 @@ public class AutoOrderControllerTest extends AbstractControllerTest {
     public void testDeleteAutoOrder() throws Exception {
 
         String uri = "/api/autoOrders/{id}";
-        Long id = new Long(1);
+        Long id = 1L;
         MvcResult result = mvc.perform(MockMvcRequestBuilders.delete(uri, id)
                                            .contentType(MediaType.APPLICATION_JSON)).andReturn();
         String content = result.getResponse().getContentAsString();
         int status = result.getResponse().getStatus();
-        Assert.assertTrue("failure - expected HTTP response body to be empty",
-                          content.trim().length() == 0);
+        Assert.assertEquals("failure - expected HTTP response body to be empty", 0, content.trim().length());
     }
 }

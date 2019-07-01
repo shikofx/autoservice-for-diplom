@@ -105,9 +105,9 @@ public class AutoOrder {
         return (
             (((this.orderId == rhs.orderId) && (Objects.equals(this.additionalProperties, rhs.additionalProperties)))
              && (Objects
-                                                                                                                    .equals(
-                                                                                                                        this.ownerName,
-                                                                                                                        rhs.ownerName)))
+                     .equals(
+                         this.ownerName,
+                         rhs.ownerName)))
             && (Objects
                     .equals(
                         this.orderDate,

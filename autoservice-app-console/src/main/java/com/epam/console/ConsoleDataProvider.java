@@ -1,13 +1,17 @@
 package com.epam.console;
 
+import static org.apache.log4j.LogManager.getLogger;
+
 import com.epam.service.DataProvider;
+import org.apache.log4j.Logger;
 
 import java.util.Date;
 
 public class ConsoleDataProvider implements DataProvider {
 
-    private ConsoleDataFormat consoleDataFormat = new ConsoleDataFormat();
-    private IConsoleManager consoleManager;
+    Logger logger = getLogger(ConsoleDataProvider.class);
+    private final ConsoleDataFormat consoleDataFormat = new ConsoleDataFormat();
+    private final IConsoleManager consoleManager;
 
     public ConsoleDataProvider(IConsoleManager consoleManager) {
         this.consoleManager = consoleManager;
@@ -15,13 +19,13 @@ public class ConsoleDataProvider implements DataProvider {
 
     @Override
     public Date getStartDate() {
-        System.out.println("Input start date: ");
+        logger.info("Input start date: ");
         return consoleDataFormat.dateStringToDate(consoleManager.readNextLine());
     }
 
     @Override
     public Date getEndDate() {
-        System.out.println("Input end date: ");
+        logger.info("Input end date: ");
         return consoleDataFormat.dateStringToDate(consoleManager.readNextLine());
     }
 }

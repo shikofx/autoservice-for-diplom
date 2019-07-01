@@ -19,21 +19,18 @@ import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.junit.runner.RunWith;
 
-import java.awt.*;
-import java.io.IOException;
-
 @RunWith(DataProviderRunner.class)
 public class AddOrderTests extends TestBase {
 
-    private Logger log = LogManager.getLogger(AddOrderTests.class);
+    private final Logger log = LogManager.getLogger(AddOrderTests.class);
     private AutoOrder orderToServer;
 
     @Before
-    public void setUp() throws IOException, AWTException {
+    public void setUp() {
         log.info("-->> setUp for " + AddOrderTests.class.getSimpleName());
         orderToServer = new AutoOrder()
             .withOrderDate("22.12.2018")
-            .withOwnerName("Test Owner");
+            .withOwnerName(TestBase.TEST_OWNER_STRING);
     }
 
     @After
@@ -43,7 +40,7 @@ public class AddOrderTests extends TestBase {
 
     @Test
     @Category(PositiveTests.class)
-    public void addNewSucceed() throws IOException, AWTException {
+    public void addNewSucceed() {
         log.info(">>> @Test addNewSucceed ");
         log.info(">>> >> add data to server: " + orderToServer.asString());
         Response addResponse = AUTO_ORDER_CONTROLLER.add(orderToServer);
@@ -63,11 +60,10 @@ public class AddOrderTests extends TestBase {
 
     @Test
     @Category({NegativeTests.class, BrokenTests.class})
-//    @UseDataProvider(value = "ordersWithEmptyFields", location = SimpleDataProvider.class)
-    public void addEmptyFieldsFailed(/*String date, String owner*/) {
+    public void addEmptyFieldsFailed() {
         orderToServer
-            .withOrderDate("date")
-            .withOwnerName("owner");
+            .withOrderDate("22-10-2015")
+            .withOwnerName(TestBase.TEST_OWNER_STRING);
         log.info(">>> @Test addEmptyFieldsFailed with " + orderToServer.asString());
         log.info(">>> >> add data to server: " + orderToServer.asString());
         Response addResponse = AUTO_ORDER_CONTROLLER.add(orderToServer);
@@ -78,11 +74,10 @@ public class AddOrderTests extends TestBase {
 
     @Test
     @Category({NegativeTests.class, BrokenTests.class})
-//    @UseDataProvider(value = "ordersWithNullFields", location = SimpleDataProvider.class)
-    public void addNullFieldsFailed(/*String date, String owner*/) {
+    public void addNullFieldsFailed() {
         orderToServer
-            .withOrderDate("date")
-            .withOwnerName("owner");
+            .withOrderDate("22-10-2015")
+            .withOwnerName(TestBase.TEST_OWNER_STRING);
         log.info(">>> @Test addNullFieldsFailed with " + orderToServer.asString());
         log.info(">>> >> add data to server: " + orderToServer.asString());
         Response addResponse = AUTO_ORDER_CONTROLLER.add(orderToServer);

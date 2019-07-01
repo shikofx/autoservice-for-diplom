@@ -1,5 +1,5 @@
-group 'com.epam'
-version '0.1.0'
+group "$applicationGroup"
+version "$applicationVersion"
 
 wrapper {
     gradleVersion = '5.4'
@@ -19,13 +19,14 @@ buildscript {
 }
 
 allprojects {
-
     repositories {
         mavenCentral()
         mavenLocal()
         jcenter()
     }
+}
 
+subprojects {
     apply plugin: 'java'
     apply plugin: 'idea'
 
@@ -37,18 +38,9 @@ allprojects {
     }
 
     dependencies {
-        testCompile group: 'junit',
-                    name: 'junit',
-                    version: "${junitVersion}"
 
-        testCompile group: 'org.mockito',
-                    name: 'mockito-all',
-                    version: "${mockitoVersion}"
     }
 
-}
-
-subprojects {
     configurations {
         agent
     }
@@ -56,72 +48,86 @@ subprojects {
     apply plugin: 'io.qameta.allure'
     apply plugin: 'jacoco'
 
-
     repositories {
         maven { url 'https://jitpack.io' }
         maven { url "http://dl.bintray.com/epam/reportportal" }
     }
 
-    dependencies{
-        agent "org.aspectj:aspectjweaver:${aspectJVersion}"
-
+    dependencies {
+        agent group: 'org.aspectj',
+              name: 'aspectjweaver',
+              version: "${aspectJVersion}"
+        testCompile group: 'junit',
+                    name: 'junit',
+                    version: "${junitVersion}"
+        testCompile group: 'org.assertj',
+                    name: 'assertj-core',
+                    version: "$assertJVersion"
+        testCompile group: 'org.mockito',
+                    name: 'mockito-all',
+                    version: "${mockitoVersion}"
         testCompile group: 'ru.yandex.qatools.allure',
                     name: 'allure-junit-adaptor',
                     version: "${allure_JUnitAdaptorVersion}"
-        testCompile group: 'org.assertj',
-                    name: 'assertj-core',
-                    version: '3.12.2'
         testCompile group: 'com.tngtech.java',
                     name: 'junit-dataprovider',
-                    version: '1.13.1'
+                    version: "$tngtechDataProviderVersion"
         compile group: 'com.google.code.gson',
                 name: 'gson',
-                version: '2.8.5'
+                version: "$gsonVersion"
         compile group: 'log4j',
                 name: 'log4j',
-                version: '1.2.17'
+                version: "$log4jVersion"
         compile group: 'com.epam.reportportal',
                 name: 'logger-java-log4j',
                 version: "${rp_log4jVersion}"
         compile group: 'com.epam.reportportal',
                 name: 'agent-java-junit',
                 version: "${rp_agentJunitVersion}"
+
     }
 
 //    Allure report
-   // task generateAllureReport(type: Exec) {
-    //    commandLine 'cmd', '/c', 'allure', 'generate', '-c', "$projectDir/build/allure-results",
-    //                '-o', "$projectDir/build/reports/allure"
-   // }
+//    task generateAllureReport(type: Exec) {
+//        commandLine 'cmd', '/c', 'allure', 'generate', '-c', "$projectDir/build/allure-results",
+//                    '-o', "$projectDir/build/reports/allure"
+//    }
+//
+//    allure {
+//        autoconfigure = true
+//        aspectjweaver = true
+//        version = "${allure_Version}"
+//    }
+////
+////    Jacoco coverage
+//    jacoco {
+//        version = "${jacoco_Version}"
+//    }
+//
+//    jacocoTestReport {
+//        reports {
+//            html.enabled = true
+//            xml.enabled = true
+//            csv.enabled = true
+//        }
+//    }
+//
+//    test {
+//        testLogging.showStandardStreams = true
+//        finalizedBy(generateAllureReport)
+//        finalizedBy(jacocoTestReport)
+//    }
 
-   // allure {
-   //     autoconfigure = true
-    //    aspectjweaver = true
-    //    version = "${allure_Version}"
-   // }
-
-//    Jacoco coverage
-   // jacoco {
-  //      version = "${jacoco_Version}"
-  //  }
-
-   // jacocoTestReport {
-   //     reports {
-   //         html.enabled = true
-   //         xml.enabled = true
-   //         csv.enabled = true
-   //     }
-   // }
-
-
-//    reportportal
- //   test {
-       // testLogging.showStandardStreams = true
-  //      finalizedBy(generateAllureReport)
-  //      finalizedBy(jacocoTestReport)
-  //  }
+    
+//    project(':autoservice-ws-autoorder-tests'){
+//        dependencies{
+//            project(':autoservice-ws-autoorder')
+//        }
+//    }
+//
+//    project(':autoservice-app-web'){
+//        dependencies{
+//            project(':autoservice-ws-autoorder')
+//        }
+//    }
 }
-
-
-
-

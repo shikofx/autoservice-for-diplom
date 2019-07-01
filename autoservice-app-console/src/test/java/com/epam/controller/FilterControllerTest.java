@@ -4,6 +4,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import com.epam.service.DataProvider;
+import org.assertj.core.api.Assertions;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -16,8 +17,8 @@ import java.util.Date;
 @RunWith(MockitoJUnitRunner.class)
 public class FilterControllerTest {
 
-    DataProvider dataProvider;
-    FilterController filterController;
+    private DataProvider dataProvider;
+    private FilterController filterController;
 
     @Before
     public void setUp() {
@@ -33,7 +34,7 @@ public class FilterControllerTest {
     @Test
     public void startDateLessOrEqualsThanCurrentDate() {
         Date currentDate = new Date();
-        Date startDate = getDateLessThan(currentDate, 100000);
+        Date startDate = getDateLessThan(currentDate);
         when(dataProvider.getStartDate()).thenReturn(currentDate).thenReturn(startDate);
         Assert.assertTrue(filterController.readAndVerifyStartDate(currentDate));
         Assert.assertTrue(filterController.readAndVerifyStartDate(currentDate));
@@ -42,7 +43,7 @@ public class FilterControllerTest {
     @Test
     public void endDateLessOrEqualsThanCurrentDate() {
         Date currentDate = new Date();
-        Date endDate = getDateLessThan(currentDate, 100000);
+        Date endDate = getDateLessThan(currentDate);
         when(dataProvider.getEndDate()).thenReturn(currentDate).thenReturn(endDate);
         Assert.assertTrue(filterController.readAndVerifyEndDate(currentDate));
     }
@@ -50,10 +51,9 @@ public class FilterControllerTest {
     @Test
     public void startDateLessThanEndDate() {
         Date currentDate = new Date();
-        Date startDate = getDateLessThan(currentDate, 100000);
-        Date endDate = currentDate;
+        Date startDate = getDateLessThan(currentDate);
         when(dataProvider.getStartDate()).thenReturn(startDate);
-        when(dataProvider.getEndDate()).thenReturn(endDate);
+        when(dataProvider.getEndDate()).thenReturn(currentDate);
         Assert.assertTrue(
             filterController.readAndVerifyStartDate(currentDate) && filterController.readAndVerifyEndDate(currentDate));
     }
@@ -67,38 +67,37 @@ public class FilterControllerTest {
             filterController.readAndVerifyStartDate(currentDate) && filterController.readAndVerifyEndDate(currentDate));
     }
 
-//    @Test(expected = IllegalArgumentException.class)
-//    public void failWhenStartDateGraterThanEndDate() {
-//        Date startDate = new Date();
-//        Date endDate = getDateLessThan(startDate, 100000);
-//        when(dataProvider.getStartDate()).thenReturn(startDate);
-//        when(dataProvider.getEndDate()).thenReturn(endDate);
-//        filterController.readAndVerifyStartDate(startDate);
-//        filterController.readAndVerifyEndDate(startDate);
-//    }
+    @Test
+    public void failWhenStartDateGraterThanEndDate() {
+        Date startDate = new Date();
+        Date endDate = getDateLessThan(startDate);
+        when(dataProvider.getStartDate()).thenReturn(startDate);
+        when(dataProvider.getEndDate()).thenReturn(endDate);
+        Assertions.assertThat(filterController.readAndVerifyStartDate(startDate)).isTrue();
+    }
 
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void failWhenStartDateGraterThanCurrentDate() {
         Date currentDate = new Date();
-        Date startDate = getDateGreaterThan(currentDate, 100000);
+        Date startDate = getDateGreaterThan(currentDate);
         when(dataProvider.getStartDate()).thenReturn(startDate);
-        filterController.readAndVerifyStartDate(currentDate);
+        Assertions.assertThat(filterController.readAndVerifyStartDate(currentDate)).isFalse();
     }
 
-    @Test(expected = IllegalArgumentException.class)
+    @Test
     public void failWhenEndDateGraterThanCurrentDate() {
         Date currentDate = new Date();
-        Date endDate = getDateGreaterThan(currentDate, 100000);
+        Date endDate = getDateGreaterThan(currentDate);
         when(dataProvider.getEndDate()).thenReturn(endDate);
-        filterController.readAndVerifyEndDate(currentDate);
+        Assertions.assertThat(filterController.readAndVerifyEndDate(currentDate)).isFalse();
     }
 
-    private Date getDateLessThan(Date currentDate, int deviation) {
-        return new Date(currentDate.getTime() - deviation);
+    private Date getDateLessThan(Date currentDate) {
+        return new Date(currentDate.getTime() - 100000);
     }
 
-    private Date getDateGreaterThan(Date currentDate, int deviation) {
-        return new Date(currentDate.getTime() + deviation);
+    private Date getDateGreaterThan(Date currentDate) {
+        return new Date(currentDate.getTime() + 100000);
     }
 }

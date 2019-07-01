@@ -29,7 +29,7 @@ public class AutoOrderControllerMocksTest extends AbstractControllerTest {
     private AutoOrderService autoOrderService;
 
     /**
-     * A AutoOrderController instance with <code>@Mock</code> components injected into it.
+     * A AutoOrderController instance with <code>@Mock</code> com.epam.components injected into it.
      */
     @InjectMocks
     private AutoOrderController autoOrderController;
@@ -39,9 +39,9 @@ public class AutoOrderControllerMocksTest extends AbstractControllerTest {
      */
     @Before
     public void setUp() {
-        // Initialize Mockito annotated components
+        // Initialize Mockito annotated com.epam.components
         MockitoAnnotations.initMocks(this);
-        // Prepare the Spring MVC Mock components for standalone testing
+        // Prepare the Spring MVC Mock com.epam.components for standalone testing
         setUp(autoOrderController);
     }
 
@@ -79,7 +79,7 @@ public class AutoOrderControllerMocksTest extends AbstractControllerTest {
     public void testGetAutoOrder() throws Exception {
 
         // Create some test data
-        Long id = new Long(1);
+        Long id = 1L;
         AutoOrder entity = getEntityStubData();
 
         // Stub the AutoOrderService.findOne method return value
@@ -129,8 +129,7 @@ public class AutoOrderControllerMocksTest extends AbstractControllerTest {
 
         // Perform standard JUnit assertions on the test results
         Assert.assertEquals("failure - expected HTTP status 404", 404, status);
-        Assert.assertTrue("failure - expected HTTP response body to be empty",
-                          content.trim().length() == 0);
+        Assert.assertEquals("failure - expected HTTP response body to be empty", 0, content.trim().length());
 
     }
 
@@ -166,7 +165,7 @@ public class AutoOrderControllerMocksTest extends AbstractControllerTest {
             "failure - expected HTTP response body to have a value",
             content.trim().length() > 0);
 
-        AutoOrder createdEntity = super.mapFromJson(content, AutoOrder.class);
+        AutoOrder createdEntity = super.mapFromJson(content);
 
         Assert.assertNotNull("failure - expected entity not null",
                              createdEntity);
@@ -182,7 +181,7 @@ public class AutoOrderControllerMocksTest extends AbstractControllerTest {
         // Create some test data
         AutoOrder entity = getEntityStubData();
         entity.setOwnerName(entity.getOwnerName() + " test");
-        Long id = new Long(1);
+        Long id = 1L;
 
         // Stub the AutoOrderService.update method return value
         when(autoOrderService.update(any(AutoOrder.class))).thenReturn(entity);
@@ -210,7 +209,7 @@ public class AutoOrderControllerMocksTest extends AbstractControllerTest {
             "failure - expected HTTP response body to have a value",
             content.trim().length() > 0);
 
-        AutoOrder updatedEntity = super.mapFromJson(content, AutoOrder.class);
+        AutoOrder updatedEntity = super.mapFromJson(content);
         Assert.assertNotNull("failure - expected entity not null",
                              updatedEntity);
         Assert.assertEquals("failure - expected id attribute unchanged",
@@ -220,7 +219,7 @@ public class AutoOrderControllerMocksTest extends AbstractControllerTest {
     }
 
     private Collection<AutoOrder> getEntityListStubData() {
-        Collection<AutoOrder> list = new ArrayList<AutoOrder>();
+        Collection<AutoOrder> list = new ArrayList<>();
         list.add(getEntityStubData());
         return list;
     }

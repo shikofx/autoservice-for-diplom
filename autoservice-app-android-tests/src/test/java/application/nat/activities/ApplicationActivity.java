@@ -16,22 +16,28 @@ public abstract class ApplicationActivity {
         this.androidDriver = androidDriver;
         this.wait = wait;
     }
+
     void fillText(By locator, String text) {
         WebElement orderDateFieldElement = androidDriver.findElement(locator);
         orderDateFieldElement.click();
         orderDateFieldElement.sendKeys(text);
     }
+
     void clickTo(By locator) {
         WebElement addOrderButton = androidDriver.findElement(locator);
         addOrderButton.click();
     }
+
     String getText(By locator) {
         WebElement element = wait.until(d -> d.findElement(locator));
         return element.getText();
     }
+
     public boolean isKeyboardShown() {
         return androidDriver.isKeyboardShown();
     }
+
     abstract Object closeKeyboard();
+
     abstract Object back();
 }

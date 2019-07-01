@@ -1,6 +1,6 @@
 package com.epam.domain;
 
-public interface Entity {
+interface Entity {
 
     String dbTableName();
 

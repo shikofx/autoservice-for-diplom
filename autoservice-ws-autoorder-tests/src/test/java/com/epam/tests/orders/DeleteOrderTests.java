@@ -18,12 +18,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 
-import java.awt.*;
-import java.io.IOException;
-
 public class DeleteOrderTests extends TestBase {
 
-    private Logger log = LogManager.getLogger(DeleteOrderTests.class);
+    private final Logger log = LogManager.getLogger(DeleteOrderTests.class);
     private AutoOrder orderToServer;
     private AutoOrder addedOrder;
 
@@ -32,7 +29,7 @@ public class DeleteOrderTests extends TestBase {
         log.info("-->> setUp for " + DeleteOrderTests.class.getSimpleName());
         orderToServer = new AutoOrder()
             .withOrderDate("22.12.2018")
-            .withOwnerName("Test Owner");
+            .withOwnerName(TestBase.TEST_OWNER_STRING);
         log.info("-->> add data to server " + orderToServer.asString());
         addedOrder = AUTO_ORDER_CONTROLLER.add(orderToServer)
             .as(AutoOrder.class);
@@ -45,7 +42,7 @@ public class DeleteOrderTests extends TestBase {
 
     @Test
     @Category(PositiveTests.class)
-    public void deleteOrderSucceed() throws IOException, AWTException {
+    public void deleteOrderSucceed() {
         log.info(">>> @Test deleteOrderSucceed of " + addedOrder.asString());
         log.info(">>> >> delete data");
         Response deleteResponse = AUTO_ORDER_CONTROLLER.delete(addedOrder);

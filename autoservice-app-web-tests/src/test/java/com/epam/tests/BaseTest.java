@@ -3,7 +3,6 @@ package com.epam.tests;
 import static com.codeborne.selenide.Selenide.open;
 
 import com.codeborne.selenide.Configuration;
-import com.epam.tests.UITests;
 import com.epam.utils.PropertyProvider;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
@@ -14,7 +13,7 @@ public class BaseTest {
     protected static final Logger LOG = LogManager.getLogger(UITests.class);
 
     @Before
-    public void setUp(){
+    public void setUp() {
         String url = PropertyProvider.getProperty("url");
         String browser = PropertyProvider.getProperty("browser");
         Configuration.browser = browser;

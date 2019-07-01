@@ -14,21 +14,21 @@ public class UITests extends BaseTest {
     public ScreenShooter photographer = ScreenShooter.failedTests().succeededTests();
 
     @Test
-    public void listOfOrdersNotEmptyTest(){
+    public void listOfOrdersNotEmptyTest() {
         setUp();
         mainPage.checkResultsSizeIsAtLeast(1);
         LOG.info("Starting tests");
     }
 
     @Test
-    public void searchByOrderIdTest(){
+    public void searchByOrderIdTest() {
         setUp();
         mainPage.searchOrderById("1");
         mainPage.checkedOrderId();
     }
 
     @Test
-    public void addNewOrderTest(){
+    public void addNewOrderTest() {
         setUp();
         String ownerName = PropertyProvider.getProperty("owner_name");
         mainPage.addNewOrder(ownerName);
@@ -37,7 +37,7 @@ public class UITests extends BaseTest {
     }
 
     @Test
-    public void cancelAddNewOrder(){
+    public void cancelAddNewOrder() {
         setUp();
         String ownerName = PropertyProvider.getProperty("owner_name");
         mainPage.addNewOrder(ownerName);
@@ -46,7 +46,7 @@ public class UITests extends BaseTest {
     }
 
     @Test
-    public void deleteOrderTest(){
+    public void deleteOrderTest() {
         setUp();
         String ownerName = PropertyProvider.getProperty("owner_name");
         mainPage.addNewOrder(ownerName);
@@ -57,7 +57,7 @@ public class UITests extends BaseTest {
     }
 
     @Test
-    public void updateOrderTest(){
+    public void updateOrderTest() {
         setUp();
         String ownerName = PropertyProvider.getProperty("owner_name");
         String changedOwnerName = PropertyProvider.getProperty("changed_owner_name");

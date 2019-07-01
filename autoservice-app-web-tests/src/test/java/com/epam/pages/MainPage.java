@@ -19,52 +19,53 @@ public class MainPage {
     private SelenideElement cancelButton = $$("vaadin-button").get(2);
     private SelenideElement deleteButton = $$("vaadin-button").get(4);
 
-    public void checkResultsSizeIsAtLeast(int expectedSize){
+    public void checkResultsSizeIsAtLeast(int expectedSize) {
         listOfOrders.shouldHave(sizeGreaterThan(expectedSize));
     }
 
-    public void searchOrderById(String orderId){
+    public void searchOrderById(String orderId) {
         searchInput.sendKeys(orderId);
         searchButton.click();
     }
 
-    public void checkedOrderId(){
+    public void checkedOrderId() {
         listOfOrders.get(1).shouldHave(Condition.text("1"));
     }
 
-    public void addNewOrder(String ownerName){
+    public void addNewOrder(String ownerName) {
         addButton.shouldHave(Condition.text("Add new")).click();
         ownerNameInput.sendKeys(ownerName);
     }
-    public void clickSave(){
+
+    public void clickSave() {
         saveButton.shouldHave(Condition.text("Save")).click();
     }
 
-    public void checkedNewOrder(String ownerName){
+    public void checkedNewOrder(String ownerName) {
         listOfOrders.last().shouldHave(Condition.text(ownerName));
     }
 
-    public void clickCancel(){
+    public void clickCancel() {
         cancelButton.shouldHave(Condition.text("Cancel")).click();
     }
 
-    public void checkedShouldNotHaveNewOrders(String ownerName){
+    public void checkedShouldNotHaveNewOrders(String ownerName) {
         listOfOrders.last().shouldNotHave(Condition.text(ownerName));
     }
 
-    public void searchByName(String name){
+    public void searchByName(String name) {
         listOfOrders.last().shouldHave(Condition.text(name)).click();
     }
 
-    public void clickDelete(){
+    public void clickDelete() {
         deleteButton.shouldHave(Condition.text("Delete")).click();
     }
 
-    public void updateOrder(String updatedDates){
+    public void updateOrder(String updatedDates) {
         ownerNameInput.sendKeys(updatedDates);
     }
 
-    public void checkedUpdatedOrder(String updatedDates){
+    public void checkedUpdatedOrder(String updatedDates) {
         listOfOrders.last().shouldHave(Condition.text(updatedDates));
     }
 }

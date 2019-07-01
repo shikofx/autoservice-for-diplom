@@ -1,23 +1,30 @@
+
 group "$applicationGroup"
 version "$applicationVersion"
-
 buildscript {
     repositories {
         mavenCentral()
+        jcenter()
+        flatDir { dirs 'lib' }
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.18.RELEASE")
+        classpath 'com.bmuschko:gradle-cargo-plugin:2.6.1'
     }
 }
-
+repositories {
+    flatDir { dirs 'lib' }
+}
 
 apply plugin: 'org.springframework.boot'
 apply plugin: 'io.spring.dependency-management'
 apply plugin: 'war'
-
-
+apply plugin: 'com.bmuschko.cargo'
+//apply plugin: 'com.bmuschko.cargo-base'
 
 dependencies {
+    implementation 'com.google.guava:guava:23.0'
+
     compile group: 'org.springframework.boot',
             name: 'spring-boot-starter-web'
 
@@ -28,8 +35,118 @@ dependencies {
             name: 'mysql-connector-java'
 
     testCompile group: 'org.springframework.boot',
-                name:'spring-boot-starter-test'
+                name: 'spring-boot-starter-test'
+
+    def cargoVersion = '1.4.5'
+    cargo "org.codehaus.cargo:cargo-core-uberjar:$cargoVersion",
+          "org.codehaus.cargo:cargo-ant:$cargoVersion"
 }
+
+def nativeAppName = "/build/libs/${war.baseName}" + '-' + "${war.version}" + ".war"
+def tomcatHome = System.getenv()['CATALINA_HOME']
+def deployed = false
+
+//class RemoteContainer {
+//    String name
+//    String container
+//    String hostname
+//    Integer port
+//    String username
+//    String password
+//    String purpose
+//}
+//
+//def remoteContainers = [new RemoteContainer(
+//        name: 'tomcat',
+//        container: 'tomcat8x',
+//        hostname: 'epbyminw0614.minsk.epam.com',
+//        port: 8061,
+//        username: 'tomcat',
+//        password: '0986123',
+//
+//)
+//]
+cargo {
+    containerId = 'tomcat8x'
+    port = 8061 // it ok port, I'm sure
+    deployable {
+        context = '/autoorderApi'
+    }
+    remote {
+        hostname = 'epbyminw0614.minsk.epam.com'
+        username = 'tomcat'
+        password = '0986123'
+    }
+}
+//remoteContainers.each { config ->
+//    task "deployDev${config.name.capitalize()}"(type: com.bmuschko.gradle.cargo.tasks.remote.CargoDeployRemote) {
+//        description = "Deploys WAR to remote Web Application Server: '${config.name}'."
+//        containerId = config.container
+//
+//        port = config.port
+//        remote{
+//            hostname = config.hostname
+//            username = config.username
+//            password = config.password
+//        }
+//
+//        context = 'autoorderApi'
+//        dependsOn = [war]
+//    }
+//
+//    task "undeployDev${config.name.capitalize()}"(type: com.bmuschko.gradle.cargo.tasks.remote.CargoUndeployRemote) {
+//        description = "Deploys WAR to remote Web Application Server: '${config.name}'."
+//        containerId = config.container
+//        hostname = config.hostname
+//        port = config.port
+//        username = config.username
+//        password = config.password
+//
+//    }
+//}
+
+//def boxes = [
+//        'DIMA':'epbyminw0614.minsk.epam.com:8061@tomcat/0986123',
+//        'NATA':'epbyminw6849.minsk.epam.com:8061@tomcat/password',
+//]
+
+//cargo {
+//    containerId = 'tomcat7x'
+//    if (project.getProperties().containsKey('deployFile')) {
+//        println nativeAppName
+//        deployable {
+//            file = file(nativeAppName)
+//        }
+//    }
+//}
+
+//tasks.addRule("Pattern: redeploy<ID>") { String taskName ->
+//    if (taskName.startsWith("redeploy")) {
+//        def envMatcher = taskName =~ /redeploy(.*)/
+//        envMatcher.find()
+//        def env_name = envMatcher.group(1)
+//        println "Configuring " + env_name
+//        def connString = boxes[env_name]
+//        println "Connection string: " + connString
+//        def connStringMatcher = connString =~ /(.*):(\d+)@(.*)\/(.*)/
+//        connStringMatcher.find()
+//
+//        def curTask = task(taskName, type: RemoteContainer) << {
+//        }
+//
+//        curTask.setProperty('port', Integer.valueOf(connStringMatcher.group(2)))
+//        curTask.setProperty('hostname', connStringMatcher.group(1))
+//        curTask.setProperty('username', connStringMatcher.group(3))
+//        curTask.setProperty('password', connStringMatcher.group(4))
+//    }
+//}
+//task startTomcat(type: Exec) {
+//    commandLine "${tomcatHome}/bin/catalina.bat", 'start'
+//}
+//
+//task stopTomcat(type: Exec) {
+//    commandLine "${tomcatHome}/bin/catalina.bat", 'stop'
+//}
 
 //ext {
 //    junitFoundation = configurations.compile.resolvedConfiguration.resolvedArtifacts.

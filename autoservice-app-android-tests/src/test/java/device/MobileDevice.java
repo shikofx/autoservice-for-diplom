@@ -22,12 +22,16 @@ public final class MobileDevice {
 
     private MobileDevice(String devicePropertiesFile) {
         TestProperties appiumProperties = new TestProperties(devicePropertiesFile);
-        PLATFORM_VERSION_PROPERTY =
-            System.getProperty("platformVersion");//appiumProperties.getProperty("platformVersion");
-        PLATFORM_NAME_PROPERTY = System.getProperty("platformName");//appiumProperties.getProperty("platformName");
-        APPIUM_SERVER_PROPERTY = System.getProperty("appiumUrl");//appiumProperties.getProperty("appiumServer");
-        DEVICE_NAME_PROPERTY = System.getProperty("deviceName");//appiumProperties.getProperty("deviceName");
-        DEVICE_UDID_PROPERTY = System.getProperty("deviceUdid");//appiumProperties.getProperty("deviceUdid");
+//        PLATFORM_VERSION_PROPERTY = appiumProperties.getProperty("platformVersion");
+//        PLATFORM_NAME_PROPERTY = appiumProperties.getProperty("platformName");
+//        APPIUM_SERVER_PROPERTY = appiumProperties.getProperty("appiumServer");
+//        DEVICE_NAME_PROPERTY = appiumProperties.getProperty("deviceName");
+//        DEVICE_UDID_PROPERTY = appiumProperties.getProperty("deviceUdid");
+        PLATFORM_VERSION_PROPERTY = System.getProperty("platformVersion");
+        PLATFORM_NAME_PROPERTY = System.getProperty("platformName");
+        APPIUM_SERVER_PROPERTY = System.getProperty("appiumUrl");
+        DEVICE_NAME_PROPERTY = System.getProperty("deviceName");
+        DEVICE_UDID_PROPERTY = System.getProperty("deviceUdid");
         CAPABILITIES = new DesiredCapabilities();
         CAPABILITIES.setCapability(DEVICE_NAME, DEVICE_NAME_PROPERTY);
         CAPABILITIES.setCapability(UDID, DEVICE_UDID_PROPERTY);

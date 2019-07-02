@@ -1,3 +1,5 @@
+group "$applicationGroup"
+version "$applicationVersion"
 buildscript {
     repositories {
         mavenCentral()
@@ -9,11 +11,6 @@ buildscript {
         classpath "com.bmuschko:gradle-cargo-plugin:$cargoPluginVersion"
     }
 }
-
-plugins {
-    id "org.sonarqube" version "2.7"
-}
-
 repositories {
     flatDir { dirs 'lib' }
 }
@@ -54,7 +51,7 @@ cargo {
     }
 
     remote {
-        hostname = 'localhost'
+        hostname = 'epbyminw0614.minsk.epam.com'
         username = 'tomcat'
         password = '0986123'
     }

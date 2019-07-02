@@ -60,7 +60,7 @@ cargo {
 //        hostname = 'epbyminw6849.minsk.epam.com'
         hostname = 'localhost'
         username = 'tomcat'
-        password = '0986123'
+        password = 'password'
     }
 }
 

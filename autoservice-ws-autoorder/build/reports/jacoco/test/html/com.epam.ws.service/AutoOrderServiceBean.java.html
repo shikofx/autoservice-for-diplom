@@ -15,40 +15,36 @@ import java.util.Collection;
 
     @Override
     public Collection&lt;AutoOrder&gt; findAll() {
-<span class="fc" id="L18">        Collection&lt;AutoOrder&gt; autoOrders = autoOrderRepository.findAll();</span>
-<span class="fc" id="L19">        return autoOrders;</span>
+<span class="fc" id="L18">        return autoOrderRepository.findAll();</span>
     }
 
     @Override
     public AutoOrder findOne(Long orderId) {
-<span class="fc" id="L24">        AutoOrder autoOrder = autoOrderRepository.findOne(orderId);</span>
-<span class="fc" id="L25">        return autoOrder;</span>
+<span class="fc" id="L23">        return autoOrderRepository.findOne(orderId);</span>
     }
 
     @Override
     public AutoOrder create(AutoOrder autoOrder) {
-<span class="pc bpc" id="L30" title="1 of 2 branches missed.">        if (autoOrder.getOrderId() != null) {</span>
+<span class="pc bpc" id="L28" title="1 of 2 branches missed.">        if (autoOrder.getOrderId() != null) {</span>
 //            Cannot create AutoOrder with specified ID value
-<span class="nc" id="L32">            return null;</span>
+<span class="nc" id="L30">            return null;</span>
         }
-<span class="fc" id="L34">        AutoOrder savedAutoOrder = autoOrderRepository.save(autoOrder);</span>
-<span class="fc" id="L35">        return savedAutoOrder;</span>
+<span class="fc" id="L32">        return autoOrderRepository.save(autoOrder);</span>
     }
 
     @Override
     public AutoOrder update(AutoOrder autoOrder) {
-<span class="fc" id="L40">        AutoOrder autoOrderPersisted = findOne(autoOrder.getOrderId());</span>
-<span class="pc bpc" id="L41" title="1 of 2 branches missed.">        if (autoOrderPersisted == null) {</span>
+<span class="fc" id="L37">        AutoOrder autoOrderPersisted = findOne(autoOrder.getOrderId());</span>
+<span class="pc bpc" id="L38" title="1 of 2 branches missed.">        if (autoOrderPersisted == null) {</span>
 //            Cannot update AutoOrder that hasn't been persisted
-<span class="nc" id="L43">            return null;</span>
+<span class="nc" id="L40">            return null;</span>
         }
-<span class="fc" id="L45">        AutoOrder updatedAutoOrder = autoOrderRepository.save(autoOrder);</span>
-<span class="fc" id="L46">        return updatedAutoOrder;</span>
+<span class="fc" id="L42">        return autoOrderRepository.save(autoOrder);</span>
     }
 
     @Override
     public void delete(Long orderId) {
-<span class="fc" id="L51">        autoOrderRepository.delete(orderId);</span>
-<span class="fc" id="L52">    }</span>
+<span class="fc" id="L47">        autoOrderRepository.delete(orderId);</span>
+<span class="fc" id="L48">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>

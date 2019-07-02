@@ -8,6 +8,7 @@ import org.junit.Test;
 
 public class UITests extends BaseTest {
 
+    public static final String OWNER_NAME_STRING = "owner_name";
     private MainPage mainPage = new MainPage();
 
     @Rule
@@ -30,7 +31,7 @@ public class UITests extends BaseTest {
     @Test
     public void addNewOrderTest() {
         setUp();
-        String ownerName = PropertyProvider.getProperty("owner_name");
+        String ownerName = PropertyProvider.getProperty(OWNER_NAME_STRING);
         mainPage.addNewOrder(ownerName);
         mainPage.clickSave();
         mainPage.checkedNewOrder(ownerName);
@@ -39,7 +40,7 @@ public class UITests extends BaseTest {
     @Test
     public void cancelAddNewOrder() {
         setUp();
-        String ownerName = PropertyProvider.getProperty("owner_name");
+        String ownerName = PropertyProvider.getProperty(OWNER_NAME_STRING);
         mainPage.addNewOrder(ownerName);
         mainPage.clickCancel();
         mainPage.checkedShouldNotHaveNewOrders(ownerName);
@@ -48,7 +49,7 @@ public class UITests extends BaseTest {
     @Test
     public void deleteOrderTest() {
         setUp();
-        String ownerName = PropertyProvider.getProperty("owner_name");
+        String ownerName = PropertyProvider.getProperty(OWNER_NAME_STRING);
         mainPage.addNewOrder(ownerName);
         mainPage.clickSave();
         mainPage.searchByName(ownerName);
@@ -59,7 +60,7 @@ public class UITests extends BaseTest {
     @Test
     public void updateOrderTest() {
         setUp();
-        String ownerName = PropertyProvider.getProperty("owner_name");
+        String ownerName = PropertyProvider.getProperty(OWNER_NAME_STRING);
         String changedOwnerName = PropertyProvider.getProperty("changed_owner_name");
         mainPage.addNewOrder(ownerName);
         mainPage.clickSave();

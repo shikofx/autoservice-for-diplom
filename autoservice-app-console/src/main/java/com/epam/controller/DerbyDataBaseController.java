@@ -10,10 +10,11 @@ public class DerbyDataBaseController implements DatabaseController {
 
     private final String dbUrl;
     private Connection connection;
+    public static final String DERBY_PROTOCOL = "jdbc:derby:";
+    public static final String DERBY_JDBC_EMBEDDED_DRIVER = "org.apache.derby.jdbc.EmbeddedDriver";
 
 
     public DerbyDataBaseController(String dbName) throws SQLException, ClassNotFoundException {
-        String DERBY_PROTOCOL = "jdbc:derby:";
         this.dbUrl = String.format("%s%s;create=true", DERBY_PROTOCOL, dbName);
         this.createDatabase();
         connection = null;
@@ -25,7 +26,6 @@ public class DerbyDataBaseController implements DatabaseController {
 
     @Override
     public void createDatabase() throws ClassNotFoundException, SQLException {
-        String DERBY_JDBC_EMBEDDED_DRIVER = "org.apache.derby.jdbc.EmbeddedDriver";
         Class.forName(DERBY_JDBC_EMBEDDED_DRIVER);
         connect();
     }

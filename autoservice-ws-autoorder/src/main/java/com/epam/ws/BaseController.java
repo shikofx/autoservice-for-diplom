@@ -1,4 +1,4 @@
-package com.epam.ws.web.api;
+package com.epam.ws;
 
 public class BaseController {
 

@@ -69,7 +69,7 @@ public class AutoOrder {
 <span class="nc" id="L69">            return false;</span>
         }
 <span class="nc" id="L71">        AutoOrder autoOrder = (AutoOrder) o;</span>
-<span class="nc bnc" id="L72" title="All 2 branches missed.">        return orderId == autoOrder.orderId &amp;&amp;</span>
+<span class="nc bnc" id="L72" title="All 2 branches missed.">        return orderId.equals(autoOrder.orderId) &amp;&amp;</span>
 <span class="nc bnc" id="L73" title="All 2 branches missed.">               orderDate.equals(autoOrder.orderDate) &amp;&amp;</span>
 <span class="nc bnc" id="L74" title="All 2 branches missed.">               ownerName.equals(autoOrder.ownerName);</span>
     }

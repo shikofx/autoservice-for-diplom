@@ -10,14 +10,15 @@ import com.codeborne.selenide.SelenideElement;
 
 public class MainPage {
 
+    public static final String VAADIN_BUTTON_SELECTOR = "vaadin-button";
     private ElementsCollection listOfOrders = $$("vaadin-grid-cell-content");
     private SelenideElement searchInput = $("vaadin-text-field");
-    private SelenideElement searchButton = $("vaadin-button");
-    private SelenideElement addButton = $$("vaadin-button").get(1);
+    private SelenideElement searchButton = $(VAADIN_BUTTON_SELECTOR);
+    private SelenideElement addButton = $$(VAADIN_BUTTON_SELECTOR).get(1);
     private SelenideElement ownerNameInput = $$("vaadin-text-field").get(3);
-    private SelenideElement saveButton = $$("vaadin-button").get(3);
-    private SelenideElement cancelButton = $$("vaadin-button").get(2);
-    private SelenideElement deleteButton = $$("vaadin-button").get(4);
+    private SelenideElement saveButton = $$(VAADIN_BUTTON_SELECTOR).get(3);
+    private SelenideElement cancelButton = $$(VAADIN_BUTTON_SELECTOR).get(2);
+    private SelenideElement deleteButton = $$(VAADIN_BUTTON_SELECTOR).get(4);
 
     public void checkResultsSizeIsAtLeast(int expectedSize) {
         listOfOrders.shouldHave(sizeGreaterThan(expectedSize));

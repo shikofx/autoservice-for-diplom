@@ -1,7 +1,6 @@
 package com.epam.ws;
 
 import com.epam.ws.model.AutoOrder;
-import com.epam.ws.web.api.BaseController;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;

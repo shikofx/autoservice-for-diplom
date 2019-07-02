@@ -1,170 +1,170 @@
 [ {
-  "uid" : "5ee52a8344c06e47",
-  "name" : "testGetAutoOrderNotFound",
-  "time" : {
-    "start" : 1559118637256,
-    "stop" : 1559118637279,
-    "duration" : 23
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "d6da1439d32b6f40",
-  "name" : "testGetAutoOrders",
-  "time" : {
-    "start" : 1559118637282,
-    "stop" : 1559118637306,
-    "duration" : 24
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "a2cafe6f4e421ab5",
-  "name" : "testUpdateAutoOrder",
-  "time" : {
-    "start" : 1559118637094,
-    "stop" : 1559118637220,
-    "duration" : 126
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "cbcee81a38f4cd24",
-  "name" : "testGetAutoOrders",
-  "time" : {
-    "start" : 1559118637464,
-    "stop" : 1559118637478,
-    "duration" : 14
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "a0d83d50aacaeec8",
+  "uid" : "7a0addad4565e928",
   "name" : "testFindAll",
   "time" : {
-    "start" : 1559118634753,
-    "stop" : 1559118635143,
-    "duration" : 390
+    "start" : 1562049983164,
+    "stop" : 1562049983453,
+    "duration" : 289
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "14f1a4313f6f827b",
-  "name" : "testUpdate",
-  "time" : {
-    "start" : 1559118635313,
-    "stop" : 1559118635324,
-    "duration" : 11
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "6b7475afb0b192b7",
-  "name" : "testCreateAutoOrder",
-  "time" : {
-    "start" : 1559118637426,
-    "stop" : 1559118637443,
-    "duration" : 17
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "eed0c16603af6b08",
-  "name" : "testCreate",
-  "time" : {
-    "start" : 1559118635161,
-    "stop" : 1559118635285,
-    "duration" : 124
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "77398f1dc32653b2",
+  "uid" : "63d2335ab069ee00",
   "name" : "testUpdateAutoOrder",
   "time" : {
-    "start" : 1559118637409,
-    "stop" : 1559118637423,
-    "duration" : 14
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "82b1726efc6c22fa",
-  "name" : "testDelete",
-  "time" : {
-    "start" : 1559118635289,
-    "stop" : 1559118635310,
-    "duration" : 21
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "4e7b53f9a7f85ce4",
-  "name" : "testGetAutoOrder",
-  "time" : {
-    "start" : 1559118637393,
-    "stop" : 1559118637405,
+    "start" : 1562049985131,
+    "stop" : 1562049985143,
     "duration" : 12
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "296c24db9fa307ba",
-  "name" : "testFindOne",
+  "uid" : "d476a705eb14427a",
+  "name" : "testDeleteAutoOrder",
   "time" : {
-    "start" : 1559118635148,
-    "stop" : 1559118635157,
+    "start" : 1562049985097,
+    "stop" : 1562049985116,
+    "duration" : 19
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "58795b2038f95046",
+  "name" : "testCreateAutoOrder",
+  "time" : {
+    "start" : 1562049985146,
+    "stop" : 1562049985162,
+    "duration" : 16
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "6c6746a96e1b534e",
+  "name" : "testGetAutoOrder",
+  "time" : {
+    "start" : 1562049985119,
+    "stop" : 1562049985128,
     "duration" : 9
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "e1d47ac472de8b0a",
-  "name" : "testDeleteAutoOrder",
+  "uid" : "e4e3623a35b10310",
+  "name" : "testGetAutoOrders",
   "time" : {
-    "start" : 1559118637363,
-    "stop" : 1559118637389,
-    "duration" : 26
+    "start" : 1562049985180,
+    "stop" : 1562049985198,
+    "duration" : 18
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "3df2b269fab4bf1f",
-  "name" : "testGetAutoOrder",
+  "uid" : "4fe7ce8bb22bb262",
+  "name" : "testFindOneNotFound",
   "time" : {
-    "start" : 1559118636847,
-    "stop" : 1559118637089,
-    "duration" : 242
+    "start" : 1562049982575,
+    "stop" : 1562049983079,
+    "duration" : 504
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "a849dd29f4add96c",
+  "uid" : "3b9c1495b1fb3168",
+  "name" : "testFindOne",
+  "time" : {
+    "start" : 1562049983457,
+    "stop" : 1562049983464,
+    "duration" : 7
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "a72f5c9b6eb9e47",
   "name" : "testGetAutoOrderNotFound",
   "time" : {
-    "start" : 1559118637449,
-    "stop" : 1559118637460,
+    "start" : 1562049985005,
+    "stop" : 1562049985023,
+    "duration" : 18
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "d515c707e55fdf4",
+  "name" : "testCreate",
+  "time" : {
+    "start" : 1562049983467,
+    "stop" : 1562049983500,
+    "duration" : 33
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "fb68acf1a3c683fd",
+  "name" : "testUpdate",
+  "time" : {
+    "start" : 1562049983532,
+    "stop" : 1562049983549,
+    "duration" : 17
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "5fd2542710a48aef",
+  "name" : "testCreateAutoOrder",
+  "time" : {
+    "start" : 1562049984979,
+    "stop" : 1562049985000,
+    "duration" : 21
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "b55ba5549facc122",
+  "name" : "testGetAutoOrders",
+  "time" : {
+    "start" : 1562049985027,
+    "stop" : 1562049985048,
+    "duration" : 21
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "e1d8725efa1a6d5",
+  "name" : "testGetAutoOrder",
+  "time" : {
+    "start" : 1562049984705,
+    "stop" : 1562049984879,
+    "duration" : 174
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "36e47133aa86feb2",
+  "name" : "testUpdateAutoOrder",
+  "time" : {
+    "start" : 1562049984882,
+    "stop" : 1562049984974,
+    "duration" : 92
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "1094080168980cf2",
+  "name" : "testGetAutoOrderNotFound",
+  "time" : {
+    "start" : 1562049985166,
+    "stop" : 1562049985177,
     "duration" : 11
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "9080c95a5721926b",
-  "name" : "testFindOneNotFound",
+  "uid" : "e09a6316dc99553",
+  "name" : "testDelete",
   "time" : {
-    "start" : 1559118634485,
-    "stop" : 1559118634639,
-    "duration" : 154
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "60bf06a042f9a134",
-  "name" : "testCreateAutoOrder",
-  "time" : {
-    "start" : 1559118637224,
-    "stop" : 1559118637252,
-    "duration" : 28
+    "start" : 1562049983504,
+    "stop" : 1562049983528,
+    "duration" : 24
   },
   "status" : "passed",
   "severity" : "normal"

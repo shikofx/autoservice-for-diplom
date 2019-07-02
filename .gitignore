@@ -4,10 +4,15 @@
 # Package Files #
 *.jar
 # User-specific stuff
-out/
-build/
 /build/
 /autoservice-app-console/test_base/
+/autoservice-app-console/build/
+/autoservice-app-web/build/
+/autoservice-app-android-tests/build/
+/autoservice-app-web-tests/build/
+/autoservice-ws-autoorder/build/
+/autoservice-ws-autoorder-tests/build/
+
 /.idea/
 /.gradle/
 !/build.gradle

@@ -8,6 +8,9 @@ import java.io.IOException;
 import java.util.Properties;
 public class PropertyProvider {
 
+    private PropertyProvider() {
+    }
+
     private static final Logger LOG = Logger.getLogger(PropertyProvider.class);
 
     private static final String filePath = ".\\src\\test\\resources\\testData.properties";
@@ -18,8 +21,7 @@ public class PropertyProvider {
         if (properties == null) {
             loadProperties(filePath);
         }
-        String value = properties.getProperty(property);
-        return value;
+        return properties.getProperty(property);
     }
 
     private static Properties loadProperties(String filePath) {

@@ -1,4 +1,3 @@
-
 group "$applicationGroup"
 version "$applicationVersion"
 buildscript {
@@ -23,7 +22,7 @@ apply plugin: 'com.bmuschko.cargo'
 //apply plugin: 'com.bmuschko.cargo-base'
 
 dependencies {
-    
+
     implementation 'com.google.guava:guava:23.0'
 
     compile group: 'org.springframework.boot',
@@ -38,14 +37,30 @@ dependencies {
     testCompile group: 'org.springframework.boot',
                 name: 'spring-boot-starter-test'
 
-    def cargoVersion = '1.4.5'
+    def cargoVersion = '1.7.5'
     cargo "org.codehaus.cargo:cargo-core-uberjar:$cargoVersion",
           "org.codehaus.cargo:cargo-ant:$cargoVersion"
 }
 
-def nativeAppName = "/build/libs/${war.baseName}" + '-' + "${war.version}" + ".war"
-def tomcatHome = System.getenv()['CATALINA_HOME']
-def deployed = false
+cargo {
+    containerId = 'tomcat8x'
+    port = 8061 // it ok port, I'm sure
+    deployable {
+        file=file('./build/libs/autoservice-ws-autoorder-1.0.war')
+        context = 'autoorderApi'
+    }
+
+    remote {
+        hostname = 'epbyminw0614.minsk.epam.com'
+        username = 'tomcat'
+        password = '0986123'
+    }
+
+}
+
+//def nativeAppName = "/build/libs/${war.baseName}" + '-' + "${war.version}" + ".war"
+//def tomcatHome = System.getenv()['CATALINA_HOME']
+//def deployed = false
 
 //class RemoteContainer {
 //    String name
@@ -67,18 +82,6 @@ def deployed = false
 //
 //)
 //]
-cargo {
-    containerId = 'tomcat8x'
-    port = 8061 // it ok port, I'm sure
-    deployable {
-        context = '/autoorderApi'
-    }
-    remote {
-        hostname = 'epbyminw0614.minsk.epam.com'
-        username = 'tomcat'
-        password = '0986123'
-    }
-}
 //remoteContainers.each { config ->
 //    task "deployDev${config.name.capitalize()}"(type: com.bmuschko.gradle.cargo.tasks.remote.CargoDeployRemote) {
 //        description = "Deploys WAR to remote Web Application Server: '${config.name}'."

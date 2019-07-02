@@ -21,7 +21,6 @@ public class ConsoleDataFormat implements DateFormat<String> {
         try {
             return simpleDateFormat.parse(date);
         } catch (ParseException e) {
-            e.printStackTrace();
             return null;
         }
     }
@@ -32,7 +31,6 @@ public class ConsoleDataFormat implements DateFormat<String> {
         try {
             return simpleDateFormat.parse(dateString);
         } catch (ParseException e) {
-            e.printStackTrace();
             return null;
         }
     }

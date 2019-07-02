@@ -1,5 +1,6 @@
 package com.epam.ws.web.api;
 
+import com.epam.ws.BaseController;
 import com.epam.ws.model.AutoOrder;
 import com.epam.ws.service.AutoOrderService;
 import org.springframework.beans.factory.annotation.Autowired;

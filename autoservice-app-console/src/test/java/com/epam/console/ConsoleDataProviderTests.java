@@ -15,6 +15,7 @@ import java.util.Date;
 
 public class ConsoleDataProviderTests {
 
+    public static final String DATE_STRING = "20-12-2019";
     private SimpleDateFormat simpleDateFormat;
     private IConsoleManager consoleManager;
     private ConsoleDataProvider consoleDataProvider;
@@ -28,7 +29,7 @@ public class ConsoleDataProviderTests {
 
     @Test
     public void readStartDateFromConsole() throws ParseException {
-        String dateString = "20-12-2019";
+        String dateString = DATE_STRING;
         Date date = simpleDateFormat.parse(dateString);
         when(consoleManager.readNextLine()).thenReturn(dateString);
         Assert.assertThat(date, is(consoleDataProvider.getStartDate()));
@@ -36,7 +37,7 @@ public class ConsoleDataProviderTests {
 
     @Test
     public void readEndDateFromConsole() throws ParseException {
-        String dateString = "20-12-2019";
+        String dateString = DATE_STRING;
         Date date = simpleDateFormat.parse(dateString);
         when(consoleManager.readNextLine()).thenReturn(dateString);
         Assert.assertThat(date, is(consoleDataProvider.getEndDate()));

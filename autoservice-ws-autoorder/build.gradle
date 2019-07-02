@@ -51,9 +51,10 @@ cargo {
     }
 
     remote {
-        hostname = 'epbyminw0614.minsk.epam.com'
+        //hostname = 'epbyminw0614.minsk.epam.com'
+        hostname = 'localhost'
         username = 'tomcat'
-        password = '0986123'
+        password = 'password'
     }
 }
 

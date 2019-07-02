@@ -1,5 +1,3 @@
-group "$applicationGroup"
-version "$applicationVersion"
 buildscript {
     repositories {
         mavenCentral()
@@ -11,6 +9,11 @@ buildscript {
         classpath "com.bmuschko:gradle-cargo-plugin:$cargoPluginVersion"
     }
 }
+
+plugins {
+    id "org.sonarqube" version "2.7"
+}
+
 repositories {
     flatDir { dirs 'lib' }
 }

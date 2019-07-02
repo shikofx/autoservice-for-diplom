@@ -11,6 +11,8 @@ buildscript {
 plugins {
     id "org.sonarqube" version "2.7"
 }
+group "$applicationGroup"
+version "$applicationVersion"
 
 group "$applicationGroup"
 version "$applicationVersion"

@@ -1,6 +1,8 @@
 plugins {
     id "org.sonarqube" version "2.7"
 }
+group "$applicationGroup"
+version "$applicationVersion"
 
 dependencies {
     testCompile 'com.codeborne:selenide:5.2.3'

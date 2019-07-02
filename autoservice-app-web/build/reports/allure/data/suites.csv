@@ -1,0 +1,6 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Tue Jul 02 10:30:20 MSK 2019","Tue Jul 02 10:30:20 MSK 2019","305","","com.epam.jersey.client.AutoOrderClientTest","","com.epam.jersey.client.AutoOrderClientTest","findAllTest","findAllTest",""
+"passed","Tue Jul 02 10:30:19 MSK 2019","Tue Jul 02 10:30:20 MSK 2019","1273","","com.epam.jersey.client.AutoOrderClientTest","","com.epam.jersey.client.AutoOrderClientTest","createNewTest","createNewTest",""
+"passed","Tue Jul 02 10:30:20 MSK 2019","Tue Jul 02 10:30:20 MSK 2019","83","","com.epam.jersey.client.AutoOrderClientTest","","com.epam.jersey.client.AutoOrderClientTest","findByIdTest","findByIdTest",""
+"passed","Tue Jul 02 10:30:21 MSK 2019","Tue Jul 02 10:30:21 MSK 2019","52","","com.epam.jersey.client.AutoOrderClientTest","","com.epam.jersey.client.AutoOrderClientTest","deleteTest","deleteTest",""
+"passed","Tue Jul 02 10:30:20 MSK 2019","Tue Jul 02 10:30:21 MSK 2019","88","","com.epam.jersey.client.AutoOrderClientTest","","com.epam.jersey.client.AutoOrderClientTest","modifyByIdTest","modifyByIdTest",""

@@ -1,4 +1,15 @@
 {
-  "total" : 0,
-  "items" : [ ]
+  "total" : 1,
+  "items" : [ {
+    "uid" : "21c0d6f6e71ec8776d045b0b91575f9d",
+    "name" : "com.epam.jersey.client.AutoOrderClientTest",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 5,
+      "unknown" : 0,
+      "total" : 5
+    }
+  } ]
 }

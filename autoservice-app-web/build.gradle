@@ -1,6 +1,20 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()
+        flatDir { dirs 'lib' }
+    }
+    dependencies {
+        classpath "com.bmuschko:gradle-cargo-plugin:$cargoPluginVersion"
+    }
+}
+
 plugins {
     id 'org.springframework.boot' version '2.1.5.RELEASE'
     id 'java'
+}
+repositories {
+    flatDir { dirs 'lib' }
 }
 
 group "$applicationGroup"
@@ -8,7 +22,7 @@ version "$applicationVersion"
 
 apply plugin: 'io.spring.dependency-management'
 apply plugin: 'war'
-
+apply plugin: 'com.bmuschko.cargo'
 
 dependencies {
     testImplementation group: 'org.springframework.boot',
@@ -26,7 +40,27 @@ dependencies {
     compile group: 'org.projectlombok',
             name: 'lombok',
             version: '1.18.8'
+    cargo "org.codehaus.cargo:cargo-core-uberjar:$cargoVersion",
+          "org.codehaus.cargo:cargo-ant:$cargoVersion"
+}
 
+def appPath = "./build/libs/${war.baseName}" + '-' + "${war.version}" + ".war"
+
+cargo {
+    containerId = 'tomcat8x'
+    port = 8061 // it ok port, I'm sure
+    deployable {
+        file=file("${appPath}")
+        context = 'autoserviceApp'
+    }
+
+    remote {
+//        hostname = 'epbyminw0614.minsk.epam.com'
+//        hostname = 'epbyminw6849.minsk.epam.com'
+        hostname = 'localhost'
+        username = 'tomcat'
+        password = '0986123'
+    }
 }
 
 dependencyManagement {

@@ -1,1 +1,51 @@
-[ ]
+[ {
+  "uid" : "19d5cfc26526cec0",
+  "name" : "findAllTest",
+  "time" : {
+    "start" : 1562052620596,
+    "stop" : 1562052620901,
+    "duration" : 305
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "194bd28205b2b9c5",
+  "name" : "createNewTest",
+  "time" : {
+    "start" : 1562052619288,
+    "stop" : 1562052620561,
+    "duration" : 1273
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "630273b8ce3832e2",
+  "name" : "findByIdTest",
+  "time" : {
+    "start" : 1562052620908,
+    "stop" : 1562052620991,
+    "duration" : 83
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "c6d6c2fbd48f2961",
+  "name" : "deleteTest",
+  "time" : {
+    "start" : 1562052621092,
+    "stop" : 1562052621144,
+    "duration" : 52
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "5cf7e633c29ad4fb",
+  "name" : "modifyByIdTest",
+  "time" : {
+    "start" : 1562052620997,
+    "stop" : 1562052621085,
+    "duration" : 88
+  },
+  "status" : "passed",
+  "severity" : "normal"
+} ]

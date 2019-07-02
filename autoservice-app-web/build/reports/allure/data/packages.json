@@ -1,5 +1,74 @@
 {
   "uid" : "83edc06c07f9ae9e47eb6dd1b683e4e2",
   "name" : "packages",
-  "children" : [ ]
+  "children" : [ {
+    "name" : "com.epam.jersey.client",
+    "children" : [ {
+      "name" : "createNewTest",
+      "uid" : "194bd28205b2b9c5",
+      "parentUid" : "86eaa3b7c599aef447a035624c646dc6",
+      "status" : "passed",
+      "time" : {
+        "start" : 1562052619288,
+        "stop" : 1562052620561,
+        "duration" : 1273
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "findAllTest",
+      "uid" : "19d5cfc26526cec0",
+      "parentUid" : "86eaa3b7c599aef447a035624c646dc6",
+      "status" : "passed",
+      "time" : {
+        "start" : 1562052620596,
+        "stop" : 1562052620901,
+        "duration" : 305
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "findByIdTest",
+      "uid" : "630273b8ce3832e2",
+      "parentUid" : "86eaa3b7c599aef447a035624c646dc6",
+      "status" : "passed",
+      "time" : {
+        "start" : 1562052620908,
+        "stop" : 1562052620991,
+        "duration" : 83
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "modifyByIdTest",
+      "uid" : "5cf7e633c29ad4fb",
+      "parentUid" : "86eaa3b7c599aef447a035624c646dc6",
+      "status" : "passed",
+      "time" : {
+        "start" : 1562052620997,
+        "stop" : 1562052621085,
+        "duration" : 88
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "deleteTest",
+      "uid" : "c6d6c2fbd48f2961",
+      "parentUid" : "86eaa3b7c599aef447a035624c646dc6",
+      "status" : "passed",
+      "time" : {
+        "start" : 1562052621092,
+        "stop" : 1562052621144,
+        "duration" : 52
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "com.epam.jersey.client"
+  } ]
 }

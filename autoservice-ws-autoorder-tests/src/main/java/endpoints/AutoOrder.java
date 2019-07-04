@@ -19,7 +19,6 @@ import java.util.Map;
 })
 public class AutoOrder {
 
-    public static final String STRING_NULL = "<null>";
     @JsonProperty("orderId")
     private int orderId;
     @JsonProperty("orderDate")
@@ -85,15 +84,15 @@ public class AutoOrder {
         sb.append(',');
         sb.append("orderDate");
         sb.append('=');
-        sb.append(((this.orderDate == null) ? STRING_NULL : this.orderDate));
+        sb.append(((this.orderDate == null) ? "<null>" : this.orderDate));
         sb.append(',');
         sb.append("ownerName");
         sb.append('=');
-        sb.append(((this.ownerName == null) ? STRING_NULL : this.ownerName));
+        sb.append(((this.ownerName == null) ? "<null>" : this.ownerName));
         sb.append(',');
         sb.append("additionalProperties");
         sb.append('=');
-        sb.append(((this.additionalProperties == null) ? STRING_NULL : this.additionalProperties));
+        sb.append(((this.additionalProperties == null) ? "<null>" : this.additionalProperties));
         sb.append(',');
         if (sb.charAt((sb.length() - 1)) == ',') {
             sb.setCharAt((sb.length() - 1), ']');
@@ -118,7 +117,7 @@ public class AutoOrder {
         if (other == this) {
             return true;
         }
-        if (!(other instanceof AutoOrder)) {
+        if ((other instanceof AutoOrder) == false) {
             return false;
         }
         AutoOrder rhs = ((AutoOrder) other);
